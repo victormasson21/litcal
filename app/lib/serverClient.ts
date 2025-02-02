@@ -1,6 +1,8 @@
 import { createServerClient } from "@supabase/ssr";
 import { cookies } from "next/headers";
 
+// Deprecated
+
 export async function createClient() {
   const cookieStore = await cookies();
 

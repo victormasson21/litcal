@@ -1,14 +1,16 @@
 import { Month } from "./month";
-import { MonthKey, monthKeys } from "../../types/logic";
+import { MonthKey, monthKeys, QuoteDaysByMonth } from "@/app/types/types";
 
 type Props = {
-  quotes: Record<string, number[]>; // { August:  [4, 6, 26, 31], July: [27, 26, 11], ...}
+  quoteDaysByMonth: QuoteDaysByMonth;
 };
 
-export const Year = ({ quotes }: Props) => {
+export const Year = ({ quoteDaysByMonth }: Props) => {
   return (
     <div
       style={{
+        // move to calendar layout ?
+        padding: "32px",
         display: "flex",
         flexDirection: "row",
         justifyContent: "center",
@@ -18,7 +20,7 @@ export const Year = ({ quotes }: Props) => {
       }}
     >
       {monthKeys.map((key: MonthKey) => {
-        return <Month key={key} month={key} quotes={quotes[key]} />;
+        return <Month key={key} month={key} quotes={quoteDaysByMonth[key]} />;
       })}
     </div>
   );

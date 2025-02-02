@@ -1,9 +1,11 @@
-export const months: Record<
+import { MonthPath, MonthName, NumberOfDays } from "@/app/types/types";
+
+export const monthsDetails: Record<
   string,
   {
-    path: string;
-    monthName: string;
-    numberOfDays: number;
+    path: MonthPath;
+    monthName: MonthName;
+    numberOfDays: NumberOfDays;
   }
 > = {
   JAN: { path: "january", monthName: "January", numberOfDays: 31 },
@@ -14,14 +16,8 @@ export const months: Record<
   JUN: { path: "june", monthName: "June", numberOfDays: 30 },
   JUL: { path: "july", monthName: "July", numberOfDays: 31 },
   AUG: { path: "august", monthName: "August", numberOfDays: 31 },
-  SEP: { path: "september", monthName: "September", numberOfDays: 30 },
-  OCT: { path: "october", monthName: "October", numberOfDays: 31 },
-  NOV: { path: "november", monthName: "November", numberOfDays: 30 },
-  DEC: { path: "december", monthName: "December", numberOfDays: 31 },
+  SEP: { path: "septembre", monthName: "Septembre", numberOfDays: 30 },
+  OCT: { path: "octobre", monthName: "Octobre", numberOfDays: 31 },
+  NOV: { path: "novembre", monthName: "Novembre", numberOfDays: 30 },
+  DEC: { path: "decembre", monthName: "Decembre", numberOfDays: 31 },
 };
-
-export const monthKeys = Object.keys(months);
-
-export type MonthKey = keyof typeof months;
-
-export type View = "YEAR" | "MONTH" | "DAY";
