@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./styling/globals.css";
+import "@/app/styling/globals.css";
+import { getStaticQuotes } from "@/app/lib/staticQuotes";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,11 +18,15 @@ export const metadata: Metadata = {
   description: "Another pointless project",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // TODO: move from layout?
+  const quotesData = await getStaticQuotes();
+  console.log({ quotesData });
+
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>

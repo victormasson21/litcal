@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
-import { months } from "../../types/logic";
+import { monthsDetails } from "@/app/lib/monthDetails";
+import { getWeeks } from "@/app/lib/helpers";
 import { Day } from "./day";
 import Link from "next/link";
 
@@ -9,7 +10,7 @@ type Props = {
 };
 
 export const Month = ({ month, quotes }: Props): ReactNode => {
-  const { path, monthName, numberOfDays } = months[month];
+  const { path, monthName, numberOfDays } = monthsDetails[month];
 
   const weeks = getWeeks(numberOfDays);
 
@@ -48,15 +49,4 @@ export const Month = ({ month, quotes }: Props): ReactNode => {
       </div>
     </Link>
   );
-};
-
-const getWeeks = (numberOfDays: number) => {
-  const days = Array.from({ length: numberOfDays }, (_, i) => i + 1);
-
-  const weeks = [];
-  for (let i = 0; i < days.length; i += 7) {
-    weeks.push(days.slice(i, i + 7));
-  }
-
-  return weeks;
 };
