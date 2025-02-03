@@ -1,22 +1,23 @@
 import type { ReactNode } from "react";
-import { monthsDetails } from "@/app/lib/monthDetails";
+import { numberOfDaysMap } from "@/app/lib/numberOfDaysMap";
 import { getWeeks } from "@/app/lib/helpers";
 import { Day } from "./day";
 import Link from "next/link";
+import { MonthName, Day as DayType } from "@/app/types/types";
 
 type Props = {
-  month: string;
-  quotes: number[]; // { August:  [4, 6, 26, 31], July: [27, 26, 11], ...}
+  monthName: MonthName;
+  quotes: DayType[];
 };
 
-export const Month = ({ month, quotes }: Props): ReactNode => {
-  const { path, monthName, numberOfDays } = monthsDetails[month];
+export const Month = ({ monthName, quotes }: Props): ReactNode => {
+  const numberOfDays = numberOfDaysMap[monthName];
 
   const weeks = getWeeks(numberOfDays);
 
   return (
     <Link
-      href={path}
+      href={monthName}
       style={{
         display: "flex",
         flexDirection: "column",
@@ -27,6 +28,7 @@ export const Month = ({ month, quotes }: Props): ReactNode => {
           marginBottom: "12px",
           width: "fit-content",
           alignSelf: "flex-end",
+          textTransform: "capitalize",
         }}
       >
         {monthName}
@@ -41,7 +43,7 @@ export const Month = ({ month, quotes }: Props): ReactNode => {
               gap: "8px",
             }}
           >
-            {week.map((day) => (
+            {week.map((day: DayType) => (
               <Day key={day} day={day} hasQuote={quotes.includes(day)} />
             ))}
           </div>

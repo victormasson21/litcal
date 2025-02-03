@@ -1,26 +1,31 @@
 import { Day as DayComponent } from "@/app/components/day/day";
-import { getMonthKey, getTodaysQuote } from "@/app/lib/helpers";
-import { monthsDetails } from "@/app/lib/monthDetails";
+import { getTodaysQuote } from "@/app/lib/helpers";
+
 import { getStaticQuotes } from "@/app/lib/staticQuotes";
-import { Day, MonthPath, Quotes } from "@/app/types/types";
+import { Day, MonthName, Quotes } from "@/app/types/types";
 
 type Props = {
   params: {
-    month: MonthPath;
+    month: MonthName;
     day: string;
   };
 };
 
 export default async function DayPage({ params }: Props) {
-  const { month: monthPath, day: dayPath } = await params;
-
-  const monthKey = getMonthKey(monthPath);
-  const { monthName } = monthsDetails[monthKey];
+  const { month: monthName, day: dayPath } = await params;
 
   const day: Day = Number(dayPath);
 
   const quotes: Quotes = await getStaticQuotes();
   const quoteData = getTodaysQuote(quotes, monthName, Number(day));
+
+  console.log({
+    monthName,
+    dayPath,
+    day,
+    quotes,
+    quoteData,
+  });
 
   const { quote, year, author, book } = quoteData;
 
