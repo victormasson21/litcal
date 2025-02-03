@@ -1,6 +1,6 @@
-import { getDayPath } from "@/app/lib/helpers";
 import { MonthName } from "@/app/types/types";
 import { ReactNode } from "react";
+import { Day } from "./day";
 
 type Props = {
   monthName: MonthName;
@@ -39,20 +39,12 @@ export function Month({ monthName, allDays, quoteDays }: Props): ReactNode {
         {allDays.map((day) => {
           const hasQuote = quoteDays.includes(day);
           return (
-            <li
-              key={day}
-              style={{
-                width: "60px",
-                fontWeight: "bold",
-                opacity: hasQuote ? 1 : 0.3,
-              }}
-            >
-              {hasQuote ? (
-                <a href={getDayPath(monthName, day)}>{day}</a>
-              ) : (
-                <p>{day}</p>
-              )}
-            </li>
+            <Day
+              key={`${monthName}-${day}`}
+              day={day}
+              monthName={monthName}
+              hasQuote={hasQuote}
+            />
           );
         })}
       </ol>
