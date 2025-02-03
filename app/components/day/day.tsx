@@ -17,7 +17,7 @@ export const Day = ({ day, monthName, quote, year, author, book }: Props) => (
       flexDirection: "column",
       justifyContent: "center",
       alignItems: "center",
-      gap: "64px",
+      gap: "48px",
     }}
   >
     <h1>
@@ -25,23 +25,23 @@ export const Day = ({ day, monthName, quote, year, author, book }: Props) => (
     </h1>
     <div
       style={{
-        maxWidth: "600px",
+        maxWidth: "450px",
         display: "flex",
         flexDirection: "column",
         gap: "24px",
       }}
     >
-      <p>{quote}</p>
+      <p style={{ fontSize: "18px" }}>{quote}</p>
       <div
         style={{
-          display: "flex",
-
           width: "100%",
+          display: "flex",
+          gap: "24px",
           justifyContent: "space-between",
         }}
       >
-        <p>{author}</p>
-        <p>{book}</p>
+        <p style={{ minWidth: "fit-content", fontWeight: "bold" }}>{author}</p>
+        <p style={{ fontStyle: "italic" }}>{book}</p>
       </div>
     </div>
     <p style={{ display: "none" }}>{year}</p>

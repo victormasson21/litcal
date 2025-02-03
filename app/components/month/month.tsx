@@ -1,20 +1,14 @@
 import { getDayPath } from "@/app/lib/helpers";
-import { MonthName, MonthPath } from "@/app/types/types";
+import { MonthName } from "@/app/types/types";
 import { ReactNode } from "react";
 
 type Props = {
   monthName: MonthName;
-  monthPath: MonthPath;
   allDays: number[];
   quoteDays: number[];
 };
 
-export function Month({
-  monthName,
-  monthPath,
-  allDays,
-  quoteDays,
-}: Props): ReactNode {
+export function Month({ monthName, allDays, quoteDays }: Props): ReactNode {
   console.log("in month", quoteDays);
 
   return (
@@ -54,7 +48,7 @@ export function Month({
               }}
             >
               {hasQuote ? (
-                <a href={getDayPath(monthPath, day)}>{day}</a>
+                <a href={getDayPath(monthName, day)}>{day}</a>
               ) : (
                 <p>{day}</p>
               )}

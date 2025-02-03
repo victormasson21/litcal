@@ -1,11 +1,14 @@
 import { Month } from "./month";
-import { MonthKey, monthKeys, QuoteDaysByMonth } from "@/app/types/types";
+import { MonthName, QuoteDaysByMonth } from "@/app/types/types";
+import { months } from "@/app/lib/numberOfDaysMap";
 
 type Props = {
   quoteDaysByMonth: QuoteDaysByMonth;
 };
 
 export const Year = ({ quoteDaysByMonth }: Props) => {
+  console.log({ months, quoteDaysByMonth });
+
   return (
     <div
       style={{
@@ -19,9 +22,13 @@ export const Year = ({ quoteDaysByMonth }: Props) => {
         gap: "32px",
       }}
     >
-      {monthKeys.map((key: MonthKey) => {
-        return <Month key={key} month={key} quotes={quoteDaysByMonth[key]} />;
-      })}
+      {months.map((monthName: MonthName) => (
+        <Month
+          key={monthName}
+          monthName={monthName}
+          quotes={quoteDaysByMonth[monthName]}
+        />
+      ))}
     </div>
   );
 };

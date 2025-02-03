@@ -1,11 +1,8 @@
-import { Day, MonthName, MonthPath, NumberOfDays } from "@/app/types/types";
-import { MonthKey, Quote, Quotes, QuoteDaysByMonth } from "@/app/types/types";
+import { Day, MonthName, NumberOfDays } from "@/app/types/types";
+import { Quote, Quotes, QuoteDaysByMonth } from "@/app/types/types";
 
-export const getDayPath = (monthPath: MonthPath, day: number): string =>
-  `${monthPath}/${day}`;
-
-export const getMonthKey = (month: MonthName | MonthPath): MonthKey =>
-  month.slice(0, 3).toUpperCase();
+export const getDayPath = (monthName: MonthName, day: number): string =>
+  `${monthName}/${day}`;
 
 export const getDays = (numberOfDays: NumberOfDays): number[] =>
   Array.from({ length: numberOfDays }, (_, i) => i + 1);
@@ -24,7 +21,8 @@ export const getWeeks = (numberOfDays: NumberOfDays) => {
 // TODO: Turn into SQL query
 export const getQuoteDaysByMonth = (quotes: Quotes): QuoteDaysByMonth =>
   quotes.reduce((grouped, quote: Quote) => {
-    const key = getMonthKey(quote.month);
+    // TODO: lower case the month in the data
+    const key = quote.month.toLowerCase() as MonthName;
     if (grouped[key]) {
       grouped[key].push(quote.day);
     } else {
@@ -42,7 +40,8 @@ export const getTodaysQuote = (
 ): Quote => {
   const matchingQuotes = quotes.filter(
     ({ day: quoteDay, month: quoteMonth }) =>
-      quoteMonth === month && quoteDay === day
+      // TODO: lower case the month in the data
+      quoteMonth.toLowerCase() === month && quoteDay === day
   );
   if (matchingQuotes.length > 1)
     throw new Error(`Too many matching quotes: ${matchingQuotes.length}`);
