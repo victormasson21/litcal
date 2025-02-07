@@ -10,14 +10,12 @@ export const Year = ({ quoteDaysByMonth }: Props) => {
   return (
     <div
       style={{
-        // move to calendar layout ?
         padding: "32px",
         display: "flex",
         flexDirection: "row",
         justifyContent: "center",
-        alignItems: "center",
         flexWrap: "wrap",
-        gap: "32px",
+        gap: "48px",
       }}
     >
       {months.map((monthName: MonthName) => (

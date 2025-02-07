@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import "@/app/styling/globals.css";
 import { getStaticQuotes } from "@/app/lib/staticQuotes";
+import { Libre_Caslon_Text } from "next/font/google";
+
+const caslon = Libre_Caslon_Text({ weight: "400", subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "LitCal",
@@ -13,20 +16,25 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   // TODO: move from layout?
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const quotesData = await getStaticQuotes();
-  console.log("data flows:", quotesData[0]);
+  // console.log("data flows:", quotesData);
 
   return (
     <html lang="en">
       <body
+        className={caslon.className}
         style={{
           filter: "contrast(170%) brightness(100%)",
           background:
             "radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(255, 245, 228, 0.55) 100%), url(/texture.svg)",
-          fontFamily: "Garamond, serif",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          padding: "48px",
         }}
       >
-        {children}
+        <main style={{ maxWidth: "750px" }}>{children}</main>
       </body>
     </html>
   );

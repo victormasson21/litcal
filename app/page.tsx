@@ -1,4 +1,3 @@
-import styles from "@/app/styling/page.module.css";
 import { Year } from "@/app/components/year/year";
 import { Quotes } from "@/app/types/types";
 import { getQuoteDaysByMonth } from "./lib/helpers";
@@ -9,8 +8,8 @@ export default async function Home() {
   const quoteDaysByMonth = getQuoteDaysByMonth(quotes);
 
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
+    <div>
+      <main>
         <Year quoteDaysByMonth={quoteDaysByMonth} />
       </main>
     </div>

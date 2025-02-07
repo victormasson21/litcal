@@ -43,8 +43,10 @@ export const getTodaysQuote = (
       // TODO: lower case the month in the data
       quoteMonth.toLowerCase() === month && quoteDay === day
   );
-  if (matchingQuotes.length > 1)
+  if (matchingQuotes.length > 1) {
+    console.log({ matchingQuotes });
     throw new Error(`Too many matching quotes: ${matchingQuotes.length}`);
+  }
 
   return matchingQuotes[0];
 };

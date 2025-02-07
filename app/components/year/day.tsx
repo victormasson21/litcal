@@ -15,7 +15,7 @@ export const Day = ({ day, hasQuote }: Props): ReactNode => {
         minHeight: "20px",
         border: "1px black solid",
         borderRadius: "50%",
-        background: hasQuote ? "black" : "white",
+        background: hasQuote ? "black" : "none",
       }}
     />
   );

@@ -12,26 +12,40 @@ type Props = {
 export const Day = ({ day, monthName, quote, year, author, book }: Props) => (
   <div
     style={{
-      padding: "32px",
-      display: "flex",
-      flexDirection: "column",
-      justifyContent: "center",
-      alignItems: "center",
-      gap: "48px",
+      // Box design
+      border: "1px rgba(0, 0, 0, 0.8) solid",
+      borderRadius: "5px",
     }}
   >
-    <h1>
-      The {day} of {monthName}
+    <h1
+      style={{
+        fontSize: "32px",
+        display: "flex",
+        flexDirection: "row",
+        width: "100%",
+        justifyContent: "space-between",
+        textTransform: "capitalize",
+        marginBottom: "16px",
+        // Box design
+        padding: "16px",
+        color: "rgba(255, 255, 255, 0.9)",
+        background: "rgba(0, 0, 0, 0.8)",
+      }}
+    >
+      <span>{monthName}</span>
+      <span>{day}</span>
     </h1>
     <div
       style={{
-        maxWidth: "450px",
+        maxWidth: "500px",
         display: "flex",
         flexDirection: "column",
         gap: "24px",
+        // Box design
+        padding: "16px",
       }}
     >
-      <p style={{ fontSize: "18px" }}>{quote}</p>
+      <p style={{ fontSize: "18px", lineHeight: "28px" }}>{quote}</p>
       <div
         style={{
           width: "100%",
@@ -41,7 +55,7 @@ export const Day = ({ day, monthName, quote, year, author, book }: Props) => (
         }}
       >
         <p style={{ minWidth: "fit-content", fontWeight: "bold" }}>{author}</p>
-        <p style={{ fontStyle: "italic" }}>{book}</p>
+        <p style={{ fontStyle: "italic", textAlign: "right" }}>{book}</p>
       </div>
     </div>
     <p style={{ display: "none" }}>{year}</p>
