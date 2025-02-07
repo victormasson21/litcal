@@ -9,8 +9,6 @@ type Props = {
 };
 
 export function Month({ monthName, allDays, quoteDays }: Props): ReactNode {
-  console.log("in month", quoteDays);
-
   return (
     <div
       style={{
