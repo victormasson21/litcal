@@ -12,25 +12,23 @@ export function Month({ monthName, allDays, quoteDays }: Props): ReactNode {
   return (
     <div
       style={{
-        padding: "32px",
         display: "flex",
         flexDirection: "column",
-        justifyContent: "center",
         alignItems: "center",
         gap: "64px",
       }}
     >
-      <div style={{ display: "flex" }}>
-        <h1 style={{ textTransform: "capitalize" }}>{monthName}</h1>
-      </div>
+      <h1 style={{ textTransform: "capitalize", fontSize: "48px" }}>
+        {monthName}
+      </h1>
+
       <ol
         style={{
           listStyle: "none",
           display: "flex",
           flexDirection: "row",
           flexWrap: "wrap",
-          gap: "48px",
-          fontSize: "48px",
+          fontSize: "36px",
           justifyContent: "center",
         }}
       >

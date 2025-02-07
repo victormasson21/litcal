@@ -25,7 +25,7 @@ export const Month = ({ monthName, quotes }: Props): ReactNode => {
     >
       <h2
         style={{
-          marginBottom: "12px",
+          marginBottom: "24px",
           width: "fit-content",
           alignSelf: "flex-end",
           textTransform: "capitalize",
