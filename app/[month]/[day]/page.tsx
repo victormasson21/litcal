@@ -19,14 +19,6 @@ export default async function DayPage({ params }: Props) {
   const quotes: Quotes = await getStaticQuotes();
   const quoteData = getTodaysQuote(quotes, monthName, Number(day));
 
-  console.log({
-    monthName,
-    dayPath,
-    day,
-    quotes,
-    quoteData,
-  });
-
   const { quote, year, author, book } = quoteData;
 
   return (

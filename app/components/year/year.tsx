@@ -7,8 +7,6 @@ type Props = {
 };
 
 export const Year = ({ quoteDaysByMonth }: Props) => {
-  console.log({ months, quoteDaysByMonth });
-
   return (
     <div
       style={{
