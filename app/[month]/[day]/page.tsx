@@ -5,10 +5,10 @@ import { getStaticQuotes } from "@/app/lib/staticQuotes";
 import { Day, MonthName, Quotes } from "@/app/types/types";
 
 type Props = {
-  params: {
+  params: Promise<{
     month: MonthName;
     day: string;
-  };
+  }>;
 };
 
 export default async function DayPage({ params }: Props) {

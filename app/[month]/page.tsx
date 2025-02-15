@@ -5,9 +5,9 @@ import { getDays, getQuoteDaysByMonth } from "@/app/lib/helpers";
 import { numberOfDaysMap } from "@/app/lib/numberOfDaysMap";
 
 type Props = {
-  params: {
+  params: Promise<{
     month: MonthName;
-  };
+  }>;
 };
 
 export default async function MonthPage({ params }: Props) {
