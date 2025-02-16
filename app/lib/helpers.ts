@@ -1,5 +1,10 @@
-import { Day, MonthName, NumberOfDays } from "@/app/types/types";
-import { Quote, Quotes, QuoteDaysByMonth } from "@/app/types/types";
+import {
+  Day,
+  MonthName,
+  NumberOfDays,
+  QuoteDaysByMonth,
+} from "@/app/types/types";
+import { Quote, Quotes } from "@/app/types/types";
 
 export const getDayPath = (monthName: MonthName, day: number): string =>
   `${monthName}/${day}`;
@@ -18,9 +23,11 @@ export const getWeeks = (numberOfDays: NumberOfDays) => {
   return weeks;
 };
 
-// TODO: Turn into SQL query
-export const getQuoteDaysByMonth = (quotes: Quotes): QuoteDaysByMonth =>
-  quotes.reduce((grouped, quote: Quote) => {
+// TODO: Turn into SQL query for year level
+export const getQuoteDaysByMonth = (
+  quotes: Array<Pick<Quote, "month" | "day">>
+): QuoteDaysByMonth =>
+  quotes.reduce((grouped, quote: Pick<Quote, "month" | "day">) => {
     // TODO: lower case the month in the data
     const key = quote.month.toLowerCase() as MonthName;
     if (grouped[key]) {
@@ -50,3 +57,7 @@ export const getTodaysQuote = (
 
   return matchingQuotes[0];
 };
+
+// TODO: remove
+export const capitalize = (str: string): string =>
+  str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();

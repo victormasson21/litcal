@@ -16,4 +16,4 @@ export const numberOfDaysMap: Record<MonthName, NumberOfDays> = {
 };
 
 // TODO: type properly
-export const months = Object.keys(numberOfDaysMap) as MonthName[];
+export const months: MonthName[] = Object.keys(numberOfDaysMap) as MonthName[];

@@ -1,11 +1,20 @@
 import { Year } from "@/app/components/year/year";
-import { Quotes } from "@/app/types/types";
+import { Quote } from "@/app/types/types";
 import { getQuoteDaysByMonth } from "./lib/helpers";
-import { getStaticQuotes } from "./lib/staticQuotes";
+import { supabase } from "./lib/supabase";
 
 export default async function Home() {
-  const quotes: Quotes = await getStaticQuotes();
-  const quoteDaysByMonth = getQuoteDaysByMonth(quotes);
+  const { data: data, error } = await supabase
+    .from("quotes_dev")
+    .select("month, day");
+
+  if (error) throw error;
+
+  const quoteDaysByMonth = getQuoteDaysByMonth(
+    data as Array<Pick<Quote, "month" | "day">>
+  );
+
+  if (error) throw error;
 
   return (
     <div>
