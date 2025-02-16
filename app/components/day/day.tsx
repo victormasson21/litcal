@@ -1,4 +1,5 @@
 import { Day as DayType, MonthName } from "@/app/types/types";
+import { seasonsData, Seasons } from "@/app/components/seasons/seasons";
 
 type Props = {
   day: DayType;
@@ -10,13 +11,7 @@ type Props = {
 };
 
 export const Day = ({ day, monthName, quote, year, author, book }: Props) => (
-  <div
-    style={{
-      // Box design
-      border: "1px rgba(0, 0, 0, 0.8) solid",
-      borderRadius: "5px",
-    }}
-  >
+  <div>
     <h1
       style={{
         fontSize: "32px",
@@ -24,12 +19,11 @@ export const Day = ({ day, monthName, quote, year, author, book }: Props) => (
         flexDirection: "row",
         width: "100%",
         justifyContent: "space-between",
+        alignItems: "center",
         textTransform: "capitalize",
         marginBottom: "16px",
-        // Box design
-        padding: "16px",
-        color: "rgba(255, 255, 255, 0.9)",
-        background: "rgba(0, 0, 0, 0.8)",
+        paddingBottom: "16px",
+        borderBottom: "2px solid rgba(0, 0, 0, 0.8)",
       }}
     >
       <span>{monthName}</span>
@@ -41,11 +35,26 @@ export const Day = ({ day, monthName, quote, year, author, book }: Props) => (
         display: "flex",
         flexDirection: "column",
         gap: "24px",
-        // Box design
-        padding: "16px",
       }}
     >
-      <p style={{ fontSize: "18px", lineHeight: "28px" }}>{quote}</p>
+      <div
+        style={{
+          paddingBottom: "16px",
+          borderBottom: "2px solid rgba(0, 0, 0, 0.8)",
+        }}
+      >
+        <p
+          style={{
+            fontSize: "18px",
+            lineHeight: "28px",
+          }}
+        >
+          {quote}
+        </p>
+        <div style={{ padding: "48px 0px" }}>
+          <Seasons seasons={seasonsData} height="40px" />
+        </div>
+      </div>
       <div
         style={{
           width: "100%",

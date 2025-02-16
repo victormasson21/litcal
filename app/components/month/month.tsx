@@ -1,6 +1,7 @@
 import { MonthName } from "@/app/types/types";
 import { ReactNode } from "react";
 import { Day } from "./day";
+import { Seasons, seasonsData } from "../seasons/seasons";
 
 type Props = {
   monthName: MonthName;
@@ -18,9 +19,22 @@ export function Month({ monthName, allDays, quoteDays }: Props): ReactNode {
         gap: "64px",
       }}
     >
-      <h1 style={{ textTransform: "capitalize", fontSize: "48px" }}>
-        {monthName}
-      </h1>
+      <div
+        style={{
+          width: "90%",
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-around",
+
+          alignItems: "center",
+        }}
+      >
+        <Seasons seasons={seasonsData.slice(0, 2)} height="50px" />
+        <h1 style={{ textTransform: "capitalize", fontSize: "48px" }}>
+          {monthName}
+        </h1>
+        <Seasons seasons={seasonsData.slice(2, 4)} height="50px" />
+      </div>
 
       <ol
         style={{
