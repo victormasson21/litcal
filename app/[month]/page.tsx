@@ -1,8 +1,9 @@
 import { Month as MonthComponent } from "@/app/components/month/month";
-import { MonthName, QuoteDaysByMonth, Quotes } from "@/app/types/types";
-import { getStaticQuotes } from "@/app/lib/staticQuotes";
-import { getDays, getQuoteDaysByMonth } from "@/app/lib/helpers";
+import { MonthName } from "@/app/types/types";
+
+import { capitalize, getDays } from "@/app/lib/helpers";
 import { numberOfDaysMap } from "@/app/lib/numberOfDaysMap";
+import { supabase } from "../lib/supabase";
 
 type Props = {
   params: Promise<{
@@ -15,11 +16,15 @@ export default async function MonthPage({ params }: Props) {
 
   const numberOfDays = numberOfDaysMap[monthName];
 
-  const quotes: Quotes = await getStaticQuotes();
-  const quoteDaysByMonth: QuoteDaysByMonth = getQuoteDaysByMonth(quotes);
+  const { data, error } = await supabase
+    .from("quotes_dev")
+    .select("day")
+    .eq("month", capitalize(monthName));
 
+  if (error) throw error;
+
+  const quoteDays: number[] = Object.values(data).map(({ day }) => day);
   const allDays = getDays(numberOfDays);
-  const quoteDays = quoteDaysByMonth[monthName];
 
   return (
     <MonthComponent
@@ -28,4 +33,14 @@ export default async function MonthPage({ params }: Props) {
       quoteDays={quoteDays}
     />
   );
+}
+
+export async function generateStaticParams() {
+  const { data, error } = await supabase.from("quotes_dev").select("month");
+
+  if (error) throw new Error();
+
+  const monthsArray = new Set(data.map(({ month }) => month));
+  const monthsObjectArray = [...monthsArray].map((month) => ({ month: month }));
+  return monthsObjectArray;
 }

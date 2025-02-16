@@ -1,8 +1,8 @@
 import { Day as DayComponent } from "@/app/components/day/day";
-import { getTodaysQuote } from "@/app/lib/helpers";
+import { capitalize } from "@/app/lib/helpers";
 
-import { getStaticQuotes } from "@/app/lib/staticQuotes";
-import { Day, MonthName, Quotes } from "@/app/types/types";
+import { supabase } from "@/app/lib/supabase";
+import { Day, MonthName, Quote } from "@/app/types/types";
 
 type Props = {
   params: Promise<{
@@ -16,10 +16,19 @@ export default async function DayPage({ params }: Props) {
 
   const day: Day = Number(dayPath);
 
-  const quotes: Quotes = await getStaticQuotes();
-  const quoteData = getTodaysQuote(quotes, monthName, Number(day));
+  const { data, error } = await supabase
+    .from("quotes_dev")
+    .select()
+    .eq("day", day)
+    .eq("month", capitalize(monthName));
 
-  const { quote, year, author, book } = quoteData;
+  if (error) throw error;
+
+  if (data.length === 0)
+    throw new Error(`No matched quote - month: ${monthName} day: ${dayPath}`);
+
+  const matchedQuote: Quote = data[0];
+  const { quote, year, author, book } = matchedQuote;
 
   return (
     <DayComponent
@@ -31,4 +40,15 @@ export default async function DayPage({ params }: Props) {
       book={book}
     />
   );
+}
+
+export async function generateStaticParams() {
+  const { data: quotes, error } = await supabase.from("quotes_dev").select();
+
+  if (error) throw new Error();
+
+  return quotes.map(({ day, month }) => ({
+    month,
+    day: day.toString(),
+  }));
 }

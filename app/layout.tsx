@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import "@/app/styling/globals.css";
-import { getStaticQuotes } from "@/app/lib/staticQuotes";
 import { Libre_Caslon_Text } from "next/font/google";
+import "@/app/styling/globals.css";
 
 const caslon = Libre_Caslon_Text({ weight: "400", subsets: ["latin"] });
 
@@ -15,11 +14,6 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // TODO: move from layout?
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const quotesData = await getStaticQuotes();
-  // console.log("data flows:", quotesData);
-
   return (
     <html lang="en">
       <body
