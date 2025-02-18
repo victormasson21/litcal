@@ -1,0 +1,23 @@
+.container {
+  width: 100px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.text {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 24px 12px;
+}
+
+.link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.unavailable {
+  opacity: 0.3;
+}

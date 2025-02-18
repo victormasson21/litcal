@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import styles from "./day.module.css";
 
 type Props = {
   day: number;
@@ -9,14 +10,8 @@ export const Day = ({ day, hasQuote }: Props): ReactNode => {
   return (
     <div
       key={day}
-      style={{
-        textAlign: "center",
-        minWidth: "20px",
-        minHeight: "20px",
-        border: "1px black solid",
-        borderRadius: "50%",
-        background: hasQuote ? "black" : "none",
-      }}
+      className={styles.dayCircle}
+      style={{ background: hasQuote ? "black" : "none" }}
     />
   );
 };

@@ -1,7 +1,9 @@
 import { MonthName } from "@/app/types/types";
 import { ReactNode } from "react";
 import { Day } from "./day";
-import { Seasons, seasonsData } from "../seasons/seasons";
+import { Seasons, seasonsData } from "../../seasons/seasons";
+import { Back } from "@/app/components/common/back";
+import styles from "./month.module.css";
 
 type Props = {
   monthName: MonthName;
@@ -11,41 +13,14 @@ type Props = {
 
 export function Month({ monthName, allDays, quoteDays }: Props): ReactNode {
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        gap: "64px",
-      }}
-    >
-      <div
-        style={{
-          width: "90%",
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-around",
-
-          alignItems: "center",
-        }}
-      >
+    <div className={styles.month}>
+      <div className={styles.headerContainer}>
         <Seasons seasons={seasonsData.slice(0, 2)} height="50px" />
-        <h1 style={{ textTransform: "capitalize", fontSize: "48px" }}>
-          {monthName}
-        </h1>
+        <h1 className={styles.headerText}>{monthName}</h1>
         <Seasons seasons={seasonsData.slice(2, 4)} height="50px" />
       </div>
 
-      <ol
-        style={{
-          listStyle: "none",
-          display: "flex",
-          flexDirection: "row",
-          flexWrap: "wrap",
-          fontSize: "36px",
-          justifyContent: "center",
-        }}
-      >
+      <ol className={styles.list}>
         {allDays.map((day) => {
           const hasQuote = quoteDays.includes(day);
           return (
@@ -58,6 +33,8 @@ export function Month({ monthName, allDays, quoteDays }: Props): ReactNode {
           );
         })}
       </ol>
+
+      <Back url="/" />
     </div>
   );
 }

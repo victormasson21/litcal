@@ -8,6 +8,12 @@ export default async function Home() {
     .from("quotes_dev")
     .select("month, day");
 
+  const { data: playgroundData } = await supabase
+    .from("quotes_dev")
+    .select("month, day, quote");
+
+  console.log({ playgroundData });
+
   if (error) throw error;
 
   const quoteDaysByMonth = getQuoteDaysByMonth(
