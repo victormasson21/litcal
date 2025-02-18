@@ -7,6 +7,7 @@ import sun from "./images/sun.png";
 import styles from "./seasons.module.css";
 
 interface Season {
+  className: string;
   alt: string;
   src: StaticImageData;
   height: string;
@@ -17,26 +18,16 @@ type Props = {
   seasons: Season[];
   height?: string;
 };
-console.log({ styles });
 
 export const Seasons = ({ seasons, height = "60px" }: Props): ReactNode => (
-  <div
-    // className={styles.seasonsContainer}
-    style={{
-      height,
-      display: "flex",
-      flexDirection: "row",
-      gap: "16px",
-      alignItems: "center",
-      justifyContent: "center",
-    }}
-  >
-    {seasons.map(({ src, alt, height, transform }) => (
+  <div className={styles.container} style={{ height }}>
+    {seasons.map(({ className, src, alt, height, transform }) => (
       <Image
+        className={className && styles[className]}
         key={alt}
         src={src}
         alt={alt}
-        style={{ height, width: "fit-content", transform }}
+        style={{ height, transform, width: "fit-content" }}
       />
     ))}
   </div>
@@ -44,19 +35,28 @@ export const Seasons = ({ seasons, height = "60px" }: Props): ReactNode => (
 
 export const seasonsData: Season[] = [
   {
+    className: "",
     alt: "Etching of a snowflake",
     src: snowflake,
     height: "90%",
-    transform: "",
+    transform: "rotate(10deg)",
   },
   {
+    className: "",
     alt: "Etching of a bud",
     src: smallbud,
     height: "130%",
     transform: "rotate(-30deg)",
   },
-  { alt: "Etching of the sun", src: sun, height: "100%", transform: "" },
   {
+    className: "rotate",
+    alt: "Etching of the sun",
+    src: sun,
+    height: "100%",
+    transform: "",
+  },
+  {
+    className: "",
     alt: "Etching of a chestnut leaf",
     src: leave,
     height: "110%",

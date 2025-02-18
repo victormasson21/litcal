@@ -1,0 +1,7 @@
+.dayCircle {
+  text-align: center;
+  min-width: 20px;
+  min-height: 20px;
+  border: 1px black solid;
+  border-radius: 50%;
+}

@@ -4,6 +4,7 @@ import { getWeeks } from "@/app/lib/helpers";
 import { Day } from "./day";
 import Link from "next/link";
 import { MonthName, Day as DayType } from "@/app/types/types";
+import styles from "./month.module.css";
 
 type Props = {
   monthName: MonthName;
@@ -16,33 +17,12 @@ export const Month = ({ monthName, quotes }: Props): ReactNode => {
   const weeks = getWeeks(numberOfDays);
 
   return (
-    <Link
-      href={monthName}
-      style={{
-        display: "flex",
-        flexDirection: "column",
-      }}
-    >
-      <h2
-        style={{
-          marginBottom: "24px",
-          width: "fit-content",
-          alignSelf: "flex-end",
-          textTransform: "capitalize",
-        }}
-      >
-        {monthName}
-      </h2>
+    <Link href={monthName} className={styles.container}>
+      <h2 className={styles.title}>{monthName}</h2>
 
-      <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+      <div className={styles.weeksContainer}>
         {weeks.map((week, index) => (
-          <div
-            key={index}
-            style={{
-              display: "flex",
-              gap: "8px",
-            }}
-          >
+          <div key={index} className={styles.week}>
             {week.map((day: DayType) => (
               <Day key={day} day={day} hasQuote={quotes.includes(day)} />
             ))}
