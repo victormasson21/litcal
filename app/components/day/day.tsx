@@ -1,7 +1,8 @@
-import { Back } from "@/app/components/common/back";
+import { Navigation } from "@/app/components/common/navigation";
 import { seasonsData, Seasons } from "@/app/seasons/seasons";
 import { Day as DayType, MonthName } from "@/app/types/types";
 import styles from "./day.module.css";
+import { getDayNavLinks } from "@/app/lib/navLinks";
 
 type Props = {
   day: DayType;
@@ -22,12 +23,20 @@ export const Day = ({ day, monthName, quote, author, book }: Props) => (
       <div className={styles.innerPage}>
         <p className={styles.paragraph}>{quote}</p>
         <Seasons seasons={seasonsData} height="40px" />
-        <Back url={`/${monthName}`} copy={monthName} />
+        <QuoteDetails author={author} book={book} />
       </div>
-      <div className={styles.details}>
-        <p className={styles.author}>{author}</p>
-        <p className={styles.book}>{book}</p>
-      </div>
+      <Navigation links={getDayNavLinks(day, monthName)} />
     </div>
+  </div>
+);
+type QuoteDetailsProps = {
+  author: string;
+  book: string;
+};
+
+const QuoteDetails = ({ author, book }: QuoteDetailsProps) => (
+  <div className={styles.quoteDetails}>
+    <p className={styles.author}>{author}</p>
+    <p className={styles.book}>{book}</p>
   </div>
 );

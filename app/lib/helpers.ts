@@ -1,10 +1,5 @@
-import {
-  Day,
-  MonthName,
-  NumberOfDays,
-  QuoteDaysByMonth,
-} from "@/app/types/types";
-import { Quote, Quotes } from "@/app/types/types";
+import { MonthName, NumberOfDays, QuoteDaysByMonth } from "@/app/types/types";
+import { Quote } from "@/app/types/types";
 
 export const getDayPath = (monthName: MonthName, day: number): string =>
   `${monthName}/${day}`;
@@ -37,26 +32,6 @@ export const getQuoteDaysByMonth = (
     }
     return grouped;
   }, {} as QuoteDaysByMonth);
-
-// TODO: Turn into SQL query
-// Have an ID for each day (nth day of the year) for direct access
-export const getTodaysQuote = (
-  quotes: Quotes,
-  month: MonthName,
-  day: Day
-): Quote => {
-  const matchingQuotes = quotes.filter(
-    ({ day: quoteDay, month: quoteMonth }) =>
-      // TODO: lower case the month in the data
-      quoteMonth.toLowerCase() === month && quoteDay === day
-  );
-  if (matchingQuotes.length > 1) {
-    console.log({ matchingQuotes });
-    throw new Error(`Too many matching quotes: ${matchingQuotes.length}`);
-  }
-
-  return matchingQuotes[0];
-};
 
 // TODO: remove
 export const capitalize = (str: string): string =>

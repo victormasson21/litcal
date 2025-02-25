@@ -2,8 +2,9 @@ import { MonthName } from "@/app/types/types";
 import { ReactNode } from "react";
 import { Day } from "./day";
 import { Seasons, seasonsData } from "../../seasons/seasons";
-import { Back } from "@/app/components/common/back";
+import { Navigation } from "@/app/components/common/navigation";
 import styles from "./month.module.css";
+import { getMonthNavLinks } from "@/app/lib/navLinks";
 
 type Props = {
   monthName: MonthName;
@@ -34,7 +35,7 @@ export function Month({ monthName, allDays, quoteDays }: Props): ReactNode {
         })}
       </ol>
 
-      <Back url="/" />
+      <Navigation links={getMonthNavLinks(monthName)} />
     </div>
   );
 }

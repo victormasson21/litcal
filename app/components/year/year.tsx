@@ -1,6 +1,6 @@
 import { Month } from "./month";
 import { MonthName, QuoteDaysByMonth } from "@/app/types/types";
-import { months } from "@/app/lib/numberOfDaysMap";
+import { months } from "@/app/lib/months";
 import { seasonsData, Seasons } from "@/app/seasons/seasons";
 import styles from "./year.module.css";
 

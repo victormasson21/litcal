@@ -2,7 +2,7 @@ import { Month as MonthComponent } from "@/app/components/month/month";
 import { MonthName } from "@/app/types/types";
 
 import { capitalize, getDays } from "@/app/lib/helpers";
-import { numberOfDaysMap } from "@/app/lib/numberOfDaysMap";
+import { numberOfDaysMap } from "@/app/lib/months";
 import { supabase } from "../lib/supabase";
 
 type Props = {
