@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { numberOfDaysMap } from "@/app/lib/numberOfDaysMap";
+import { numberOfDaysMap } from "@/app/lib/months";
 import { getWeeks } from "@/app/lib/helpers";
 import { Day } from "./day";
 import Link from "next/link";
