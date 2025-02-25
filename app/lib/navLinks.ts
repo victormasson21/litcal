@@ -1,6 +1,6 @@
 import { Day, MonthName } from "@/app/types/types";
-import { months as monthNames } from "./months";
-import { Links } from "@/app/components/common/navigation";
+import { monthNames } from "./months";
+import { Links } from "@/app/components/nav/nav";
 
 export const getMonthNavLinks = (monthName: MonthName): Links => {
   const monthIndex = monthNames.indexOf(monthName);

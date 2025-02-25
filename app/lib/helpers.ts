@@ -1,14 +1,14 @@
-import { MonthName, NumberOfDays, QuoteDaysByMonth } from "@/app/types/types";
+import { MonthName, dayCount, QuoteDaysByMonth } from "@/app/types/types";
 import { Quote } from "@/app/types/types";
 
 export const getDayPath = (monthName: MonthName, day: number): string =>
   `${monthName}/${day}`;
 
-export const getDays = (numberOfDays: NumberOfDays): number[] =>
-  Array.from({ length: numberOfDays }, (_, i) => i + 1);
+export const getDays = (dayCount: dayCount): number[] =>
+  Array.from({ length: dayCount }, (_, i) => i + 1);
 
-export const getWeeks = (numberOfDays: NumberOfDays) => {
-  const days = getDays(numberOfDays);
+export const getWeeks = (dayCount: dayCount) => {
+  const days = getDays(dayCount);
 
   const weeks = [];
   for (let i = 0; i < days.length; i += 7) {

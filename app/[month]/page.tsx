@@ -2,7 +2,7 @@ import { Month as MonthComponent } from "@/app/components/month/month";
 import { MonthName } from "@/app/types/types";
 
 import { capitalize, getDays } from "@/app/lib/helpers";
-import { numberOfDaysMap } from "@/app/lib/months";
+import { monthsMap } from "@/app/lib/months";
 import { supabase } from "../lib/supabase";
 
 type Props = {
@@ -14,7 +14,7 @@ type Props = {
 export default async function MonthPage({ params }: Props) {
   const { month: monthName } = await params;
 
-  const numberOfDays = numberOfDaysMap[monthName];
+  const dayCount = monthsMap[monthName].dayCount;
 
   const { data, error } = await supabase
     .from("quotes_dev")
@@ -24,7 +24,7 @@ export default async function MonthPage({ params }: Props) {
   if (error) throw error;
 
   const quoteDays: number[] = Object.values(data).map(({ day }) => day);
-  const allDays = getDays(numberOfDays);
+  const allDays = getDays(dayCount);
 
   return (
     <MonthComponent

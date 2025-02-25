@@ -12,7 +12,7 @@ export type MonthName =
   | "novembre"
   | "decembre";
 
-export type NumberOfDays = 29 | 30 | 31;
+export type dayCount = 29 | 30 | 31;
 
 export type Day = number;
 
