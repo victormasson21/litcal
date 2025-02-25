@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { numberOfDaysMap } from "@/app/lib/months";
+import { monthsMap } from "@/app/lib/months";
 import { getWeeks } from "@/app/lib/helpers";
 import { Day } from "./day";
 import Link from "next/link";
@@ -12,9 +12,9 @@ type Props = {
 };
 
 export const Month = ({ monthName, quotes }: Props): ReactNode => {
-  const numberOfDays = numberOfDaysMap[monthName];
+  const dayCount = monthsMap[monthName].dayCount;
 
-  const weeks = getWeeks(numberOfDays);
+  const weeks = getWeeks(dayCount);
 
   return (
     <Link href={monthName} className={styles.container}>

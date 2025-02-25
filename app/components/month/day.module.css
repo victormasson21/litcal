@@ -13,6 +13,12 @@
   padding: 24px 12px;
 }
 
+@media screen and (min-width: 480px) {
+  .text {
+    padding: 16px 8px;
+  }
+}
+
 .link {
   color: inherit;
   text-decoration: none;

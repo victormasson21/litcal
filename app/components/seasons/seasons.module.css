@@ -1,0 +1,63 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+
+  height: 50px;
+  transition: height 0.6s;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    height: 60px;
+  }
+}
+
+.image {
+  width: "fit-content";
+}
+
+.winter {
+  animation: slow-back-spin 120s linear infinite;
+}
+@keyframes slow-back-spin {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.spring {
+  animation: windy-treble 20s linear infinite;
+}
+@keyframes windy-treble {
+  from {
+    transform: rotate(330deg);
+  }
+  50% {
+    transform: rotate(320deg);
+  }
+  to {
+    transform: rotate(330deg);
+  }
+}
+
+.summer {
+  animation: forward-spin 60s linear infinite;
+}
+@keyframes forward-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.autumn {
+  padding-left: 5px;
+}

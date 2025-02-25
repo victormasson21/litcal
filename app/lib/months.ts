@@ -1,19 +1,26 @@
-import { MonthName, NumberOfDays } from "@/app/types/types";
+import { MonthName, dayCount } from "@/app/types/types";
 
-export const numberOfDaysMap: Record<MonthName, NumberOfDays> = {
-  january: 31,
-  february: 29,
-  march: 31,
-  april: 30,
-  may: 31,
-  june: 30,
-  july: 31,
-  august: 31,
-  septembre: 30,
-  octobre: 31,
-  novembre: 30,
-  decembre: 31,
+type Season = "winter" | "spring" | "summer" | "autumn";
+interface Month {
+  dayCount: dayCount;
+  mainIcon: Season;
+  icons: Season[];
+}
+
+export const monthsMap: Record<MonthName, Month> = {
+  january: { dayCount: 31, mainIcon: "winter", icons: ["autumn", "winter"] },
+  february: { dayCount: 29, mainIcon: "winter", icons: ["winter", "spring"] },
+  march: { dayCount: 31, mainIcon: "spring", icons: ["winter", "spring"] },
+  april: { dayCount: 30, mainIcon: "spring", icons: ["winter", "spring"] },
+  may: { dayCount: 31, mainIcon: "spring", icons: ["spring", "summer"] },
+  june: { dayCount: 30, mainIcon: "summer", icons: ["spring", "summer"] },
+  july: { dayCount: 31, mainIcon: "summer", icons: ["spring", "summer"] },
+  august: { dayCount: 31, mainIcon: "summer", icons: ["summer", "autumn"] },
+  septembre: { dayCount: 30, mainIcon: "autumn", icons: ["summer", "autumn"] },
+  octobre: { dayCount: 31, mainIcon: "autumn", icons: ["summer", "autumn"] },
+  novembre: { dayCount: 30, mainIcon: "autumn", icons: ["autumn", "winter"] },
+  decembre: { dayCount: 31, mainIcon: "winter", icons: ["autumn", "winter"] },
 };
 
 // TODO: type properly
-export const months: MonthName[] = Object.keys(numberOfDaysMap) as MonthName[];
+export const monthNames: MonthName[] = Object.keys(monthsMap) as MonthName[];

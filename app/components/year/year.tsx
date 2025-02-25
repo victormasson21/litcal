@@ -1,7 +1,7 @@
 import { Month } from "./month";
 import { MonthName, QuoteDaysByMonth } from "@/app/types/types";
-import { months } from "@/app/lib/months";
-import { seasonsData, Seasons } from "@/app/seasons/seasons";
+import { monthNames } from "@/app/lib/months";
+import { seasonsData, Seasons } from "@/app/components/seasons/seasons";
 import styles from "./year.module.css";
 
 type Props = {
@@ -11,9 +11,9 @@ type Props = {
 export const Year = ({ quoteDaysByMonth }: Props) => {
   return (
     <div>
-      <Seasons seasons={seasonsData} />
+      <Seasons seasons={Object.values(seasonsData)} />
       <div className={styles.container}>
-        {months.map((monthName: MonthName) => (
+        {monthNames.map((monthName: MonthName) => (
           <Month
             key={monthName}
             monthName={monthName}

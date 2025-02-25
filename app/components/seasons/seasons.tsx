@@ -16,11 +16,10 @@ interface Season {
 
 type Props = {
   seasons: Season[];
-  height?: string;
 };
 
-export const Seasons = ({ seasons, height = "60px" }: Props): ReactNode => (
-  <div className={styles.container} style={{ height }}>
+export const Seasons = ({ seasons }: Props): ReactNode => (
+  <div className={styles.container}>
     {seasons.map(({ className, src, alt, height, transform }) => (
       <Image
         className={className && styles[className]}
@@ -33,33 +32,33 @@ export const Seasons = ({ seasons, height = "60px" }: Props): ReactNode => (
   </div>
 );
 
-export const seasonsData: Season[] = [
-  {
-    className: "",
+export const seasonsData: Record<string, Season> = {
+  winter: {
+    className: "winter",
     alt: "Etching of a snowflake",
     src: snowflake,
     height: "90%",
     transform: "rotate(10deg)",
   },
-  {
-    className: "",
+  spring: {
+    className: "spring",
     alt: "Etching of a bud",
     src: smallbud,
     height: "130%",
     transform: "rotate(-30deg)",
   },
-  {
-    className: "rotate",
+  summer: {
+    className: "summer",
     alt: "Etching of the sun",
     src: sun,
     height: "100%",
     transform: "",
   },
-  {
-    className: "",
+  autumn: {
+    className: "autumn",
     alt: "Etching of a chestnut leaf",
     src: leave,
     height: "110%",
     transform: "rotate(20deg)",
   },
-];
+};

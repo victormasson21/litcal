@@ -1,8 +1,9 @@
-import { Navigation } from "@/app/components/common/navigation";
-import { seasonsData, Seasons } from "@/app/seasons/seasons";
+import { Navigation } from "@/app/components/nav/nav";
+import { seasonsData, Seasons } from "@/app/components/seasons/seasons";
 import { Day as DayType, MonthName } from "@/app/types/types";
 import styles from "./day.module.css";
 import { getDayNavLinks } from "@/app/lib/navLinks";
+import { monthsMap } from "@/app/lib/months";
 
 type Props = {
   day: DayType;
@@ -13,22 +14,24 @@ type Props = {
   book: string;
 };
 
-export const Day = ({ day, monthName, quote, author, book }: Props) => (
-  <div>
-    <h1 className={styles.title}>
-      <span>{monthName}</span>
-      <span>{day}</span>
-    </h1>
-    <div className={styles.outerPage}>
+export const Day = ({ day, monthName, quote, author, book }: Props) => {
+  const { mainIcon } = monthsMap[monthName];
+  return (
+    <div className={styles.container}>
+      <h1 className={styles.dateHeader}>
+        <span>{monthName}</span>
+        <span>{day}</span>
+      </h1>
+
       <div className={styles.innerPage}>
         <p className={styles.paragraph}>{quote}</p>
-        <Seasons seasons={seasonsData} height="40px" />
-        <QuoteDetails author={author} book={book} />
+        <Seasons seasons={[seasonsData[mainIcon]]} />
       </div>
+      <QuoteDetails author={author} book={book} />
       <Navigation links={getDayNavLinks(day, monthName)} />
     </div>
-  </div>
-);
+  );
+};
 type QuoteDetailsProps = {
   author: string;
   book: string;
