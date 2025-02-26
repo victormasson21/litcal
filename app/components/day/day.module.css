@@ -6,10 +6,7 @@
   height: 90vh;
   max-height: 800px;
 
-  > * {
-    width: 100%;
-    padding: 0 8px;
-  }
+  padding: 0 8px;
 }
 
 .paragraph {
@@ -21,6 +18,7 @@
   font-size: 32px;
   text-transform: capitalize;
 
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -33,6 +31,7 @@
 }
 
 .innerPage {
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 32px;
@@ -47,6 +46,7 @@
 }
 
 .quoteDetails {
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
