@@ -32,7 +32,3 @@ export const getQuoteDaysByMonth = (
     }
     return grouped;
   }, {} as QuoteDaysByMonth);
-
-// TODO: remove
-export const capitalize = (str: string): string =>
-  str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
