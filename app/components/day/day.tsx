@@ -15,7 +15,9 @@ type Props = {
 };
 
 export const Day = ({ day, monthName, quote, author, book }: Props) => {
-  const { mainIcon } = monthsMap[monthName];
+  /* TODO: improve to remove defensive coding? */
+  const mainIcon = monthName && monthsMap[monthName].mainIcon;
+
   return (
     <div className={styles.container}>
       <h1 className={styles.dateHeader}>
@@ -25,7 +27,8 @@ export const Day = ({ day, monthName, quote, author, book }: Props) => {
 
       <div className={styles.innerPage}>
         <p className={styles.paragraph}>{quote}</p>
-        <Seasons seasons={[seasonsData[mainIcon]]} />
+        {/* TODO: improve to remove defensive coding? */}
+        {mainIcon && <Seasons seasons={[seasonsData[mainIcon]]} />}
       </div>
       <QuoteDetails author={author} book={book} />
       <Navigation links={getDayNavLinks(day, monthName)} />

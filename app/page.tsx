@@ -6,7 +6,8 @@ import { supabase } from "./lib/supabase";
 export default async function Home() {
   const { data: data, error } = await supabase
     .from("quotes_dev")
-    .select("month, day");
+    .select("month, day")
+    .not("quote", "is", null);
 
   /**
    * Playground data

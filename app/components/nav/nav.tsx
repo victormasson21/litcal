@@ -13,8 +13,6 @@ export interface Links {
 }
 
 export const Navigation = ({ links }: { links: Links }) => {
-  console.log({ links });
-
   const { left, center, right } = links;
   return (
     <div className={styles.container}>
