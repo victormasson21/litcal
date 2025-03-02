@@ -11,7 +11,9 @@ type Props = {
 export const Year = ({ quoteDaysByMonth }: Props) => {
   return (
     <div>
-      <Seasons seasons={Object.values(seasonsData)} />
+      <div style={{ height: "80px" }}>
+        <Seasons seasons={Object.values(seasonsData)} />
+      </div>
       <div className={styles.container}>
         {monthNames.map((monthName: MonthName) => (
           <Month
