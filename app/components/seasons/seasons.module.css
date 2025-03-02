@@ -4,9 +4,7 @@
   gap: 16px;
   align-items: center;
   justify-content: center;
-
-  height: 50px;
-  transition: height 0.6s;
+  animation: fadeIn 1.2s;
 }
 
 @media screen and (min-width: 768px) {
@@ -60,4 +58,15 @@
 
 .autumn {
   padding-left: 5px;
+}
+
+@keyframes fadeIn {
+  from {
+    gap: 64px;
+    transform: scale(0.7);
+  }
+  to {
+    gap: 16px;
+    transform: scale(1);
+  }
 }
