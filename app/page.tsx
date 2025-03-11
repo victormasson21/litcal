@@ -7,6 +7,7 @@ export default async function Home() {
   const { data: data, error } = await supabase
     .from("quotes_dev")
     .select("month, day")
+    .eq("display", true)
     .not("quote", "is", null);
 
   /**
