@@ -21,6 +21,7 @@ export default async function MonthPage({ params }: Props) {
     .from("quotes_dev")
     .select("day")
     .eq("month", monthName)
+    .eq("display", true)
     .not("quote", "is", null);
 
   if (error) throw error;
