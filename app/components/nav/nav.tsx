@@ -6,14 +6,15 @@ type Link = {
   text: string;
 };
 
-export interface Links {
+export interface NavLinks {
   left: Link;
   center: Link;
   right: Link;
 }
 
-export const Navigation = ({ links }: { links: Links }) => {
+export const Navigation = ({ links }: { links: NavLinks }) => {
   const { left, center, right } = links;
+
   return (
     <div className={styles.container}>
       <Link className={styles.link} href={left.url}>

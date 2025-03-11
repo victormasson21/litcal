@@ -22,5 +22,4 @@ export const monthsMap: Record<MonthName, Month> = {
   decembre: { dayCount: 31, mainIcon: "winter", icons: ["autumn", "winter"] },
 };
 
-// TODO: type properly
 export const monthNames: MonthName[] = Object.keys(monthsMap) as MonthName[];
