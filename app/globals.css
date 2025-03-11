@@ -23,16 +23,20 @@ body {
       rgba(255, 245, 228, 0.55) 100%
     ),
     url(/texture.svg);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
   min-width: 360px;
-  padding: 32px 16px;
+  padding: 48px 16px;
 }
 @media screen and (min-width: 480px) {
   body {
-    padding: 32px;
+    padding: 48px 32px;
   }
 }
 @media screen and (min-width: 768px) {
