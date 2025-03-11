@@ -9,11 +9,6 @@
   padding: 0 8px;
 }
 
-.paragraph {
-  font-size: 18px;
-  line-height: 28px;
-}
-
 .dateHeader {
   font-size: 32px;
   text-transform: capitalize;
@@ -43,6 +38,11 @@
   padding-bottom: 64px;
 
   animation: fadeInOpacity 1.2s;
+}
+
+.paragraph {
+  font-size: 18px;
+  line-height: 28px;
 }
 
 .quoteDetails {
