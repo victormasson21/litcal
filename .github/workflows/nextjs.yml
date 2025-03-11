@@ -69,6 +69,10 @@ jobs:
           NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
           PAGES_BASE_PATH: ${{ secrets.PAGES_BASE_PATH }}
         run: pnpm next build
+
+      - name: List output directory
+        run: ls -la ./out || echo "Output directory not found"
+
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
