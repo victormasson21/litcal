@@ -1,9 +1,10 @@
 import { Navigation, NavLinks } from "@/app/components/nav/nav";
-import { seasonsData, Seasons } from "@/app/components/seasons/seasons";
+import { seasonsData } from "@/app/components/seasons/seasons";
 import { Day as DayType, MonthName } from "@/app/types/types";
 import styles from "./day.module.css";
 import { monthsMap } from "@/app/lib/months";
 import { Template } from "../template";
+import Image from "next/image";
 
 type Props = {
   day: DayType;
@@ -24,21 +25,31 @@ export const Day = ({
 }: Props) => {
   /* TODO: improve to remove defensive coding? */
   const mainIcon = monthName && monthsMap[monthName].mainIcon;
+  const { src, alt } = seasonsData[mainIcon];
 
   return (
     <Template
       containerStyle={{ maxWidth: "500px" }}
       header={
-        <h1 className={styles.dateHeader}>
+        <h1 className={styles.header}>
           <span>{monthName}</span>
           <span>{day}</span>
         </h1>
       }
       body={
-        <div className={styles.innerPage}>
+        <div className={styles.body}>
           <p className={styles.paragraph}>{quote}</p>
           {/* TODO: improve to remove defensive coding? */}
-          {mainIcon && <Seasons seasons={[seasonsData[mainIcon]]} />}
+
+          {mainIcon && (
+            <Image
+              key={alt}
+              src={src}
+              alt={alt}
+              height={80}
+              className={styles.icon}
+            />
+          )}
         </div>
       }
       footer={
