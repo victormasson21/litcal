@@ -11,6 +11,7 @@ interface SeasonImage {
   className: string;
   alt: string;
   src: StaticImageData;
+  style: object;
 }
 
 type Props = {
@@ -34,25 +35,62 @@ export const Seasons = ({ seasons }: Props): ReactNode => (
   </div>
 );
 
+export const Season = ({
+  season,
+  style,
+}: {
+  season: SeasonKey;
+  style?: object;
+}): ReactNode => {
+  const { className, src, alt, style: baseStyle } = seasonsData[season];
+  return (
+    <Image
+      className={styles[className]}
+      src={src}
+      alt={alt}
+      style={{ ...baseStyle, ...style }}
+    />
+  );
+};
+
 export const seasonsData: Record<SeasonKey, SeasonImage> = {
   winter: {
     className: "winter",
     alt: "Etching of a snowflake",
     src: snowflake,
+    style: {
+      width: "fit-content",
+      height: "90%",
+      transform: "rotate(10deg)",
+    },
   },
   spring: {
     className: "spring",
     alt: "Etching of a bud",
     src: smallbud,
+    style: {
+      width: "fit-content",
+      height: "130%",
+      transform: "rotate(-30deg)",
+    },
   },
   summer: {
     className: "summer",
     alt: "Etching of the sun",
     src: sun,
+    style: {
+      width: "fit-content",
+      height: "100%",
+    },
   },
   autumn: {
     className: "autumn",
     alt: "Etching of a chestnut leaf",
     src: leave,
+    style: {
+      width: "fit-content",
+      height: "110%",
+      transform: "rotate(20deg)",
+    },
   },
 };
