@@ -16,9 +16,7 @@ export default async function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={caslon.className}>
-        <main style={{ maxWidth: "750px" }}>{children}</main>
-      </body>
+      <body className={caslon.className}>{children}</body>
     </html>
   );
 }

@@ -3,6 +3,7 @@ import { seasonsData, Seasons } from "@/app/components/seasons/seasons";
 import { Day as DayType, MonthName } from "@/app/types/types";
 import styles from "./day.module.css";
 import { monthsMap } from "@/app/lib/months";
+import { Template } from "../template";
 
 type Props = {
   day: DayType;
@@ -25,22 +26,31 @@ export const Day = ({
   const mainIcon = monthName && monthsMap[monthName].mainIcon;
 
   return (
-    <div className={styles.container}>
-      <h1 className={styles.dateHeader}>
-        <span>{monthName}</span>
-        <span>{day}</span>
-      </h1>
-
-      <div className={styles.innerPage}>
-        <p className={styles.paragraph}>{quote}</p>
-        {/* TODO: improve to remove defensive coding? */}
-        {mainIcon && <Seasons seasons={[seasonsData[mainIcon]]} />}
-      </div>
-      <QuoteDetails author={author} book={book} />
-      <Navigation links={navigation} />
-    </div>
+    <Template
+      containerStyle={{ maxWidth: "500px" }}
+      header={
+        <h1 className={styles.dateHeader}>
+          <span>{monthName}</span>
+          <span>{day}</span>
+        </h1>
+      }
+      body={
+        <div className={styles.innerPage}>
+          <p className={styles.paragraph}>{quote}</p>
+          {/* TODO: improve to remove defensive coding? */}
+          {mainIcon && <Seasons seasons={[seasonsData[mainIcon]]} />}
+        </div>
+      }
+      footer={
+        <>
+          <QuoteDetails author={author} book={book} />
+          <Navigation links={navigation} />
+        </>
+      }
+    />
   );
 };
+
 type QuoteDetailsProps = {
   author: string;
   book: string;
