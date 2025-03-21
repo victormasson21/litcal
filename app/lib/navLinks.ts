@@ -7,6 +7,7 @@ export const getMonthNavLinks = (monthName: MonthName): NavLinks => {
   const prevMonth =
     monthNames[monthIndex - 1] || monthNames[monthNames.length - 1];
   const nextMonth = monthNames[monthIndex + 1] || monthNames[0];
+  // TODO: remove text if un-used
   return {
     left: { url: `/${prevMonth}`, text: prevMonth.slice(0, 3) },
     center: { url: `/`, text: "year" },

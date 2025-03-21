@@ -19,8 +19,7 @@ export const Navigation = ({ links }: { links: NavLinks }) => {
   return (
     <div className={styles.container}>
       <Link className={styles.link} href={left.url}>
-        <span>&larr;</span>
-        <span>{left.text}</span>
+        &larr;
       </Link>
       <Link
         className={styles.link}
@@ -31,8 +30,7 @@ export const Navigation = ({ links }: { links: NavLinks }) => {
         {/* <span>{center.text}</span> */}
       </Link>
       <Link className={styles.link} href={right.url}>
-        <span>{right.text}</span>
-        <span>&rarr;</span>
+        &rarr;
       </Link>
     </div>
   );
