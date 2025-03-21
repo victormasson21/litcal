@@ -16,14 +16,15 @@ type Props = {
 
 export function Month({ monthName, allDays, quoteDays }: Props): ReactNode {
   const { icons } = monthsMap[monthName];
+  const [leftIcon, rightIcon] = icons;
 
   return (
     <Template
       header={
         <div className={styles.headerContainer}>
-          <Seasons seasons={[icons[0]]} />
+          <Seasons seasons={[leftIcon]} />
           <h1 className={styles.headerText}>{monthName}</h1>
-          <Seasons seasons={[icons[1]]} />
+          <Seasons seasons={[rightIcon]} />
         </div>
       }
       body={
