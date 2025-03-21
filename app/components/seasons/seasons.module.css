@@ -8,66 +8,41 @@
   height: 40px;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 480px) {
   .container {
     height: 60px;
   }
 }
 
-.image {
-  width: "fit-content";
-}
-
 .winter {
-  animation: slow-back-spin 120s linear infinite;
-}
-@keyframes slow-back-spin {
-  from {
-    transform: rotate(360deg);
-  }
-  to {
-    transform: rotate(0deg);
-  }
+  height: 90%;
+  transform: rotate(10deg);
 }
 
 .spring {
-  animation: windy-treble 20s linear infinite;
-}
-@keyframes windy-treble {
-  from {
-    transform: rotate(330deg);
-  }
-  50% {
-    transform: rotate(320deg);
-  }
-  to {
-    transform: rotate(330deg);
-  }
+  height: 130%;
+  transform: rotate(-30deg);
 }
 
 .summer {
+  height: 100%;
   animation: forward-spin 60s linear infinite;
 }
+
+.autumn {
+  height: 110%;
+  transform: rotate(20deg);
+}
+
+.rotate {
+  animation: forward-spin 60s linear infinite;
+}
+
 @keyframes forward-spin {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
-  }
-}
-
-.autumn {
-  padding-left: 5px;
-}
-
-@keyframes fadeIn {
-  from {
-    gap: 64px;
-    transform: scale(0.7);
-  }
-  to {
-    gap: 16px;
-    transform: scale(1);
   }
 }

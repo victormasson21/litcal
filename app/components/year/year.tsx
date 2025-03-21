@@ -2,6 +2,7 @@ import { Month } from "./month";
 import { MonthName, QuoteDaysByMonth } from "@/app/types/types";
 import { monthNames } from "@/app/lib/months";
 import { seasonsData, Seasons } from "@/app/components/seasons/seasons";
+import type { SeasonKey } from "@/app/components/seasons/seasons";
 import styles from "./year.module.css";
 import { Template } from "../template";
 
@@ -14,7 +15,7 @@ export const Year = ({ quoteDaysByMonth }: Props) => {
     <Template
       header={
         <div style={{ height: "80px" }}>
-          <Seasons seasons={Object.values(seasonsData)} />
+          <Seasons seasons={Object.keys(seasonsData) as SeasonKey[]} />
         </div>
       }
       body={
