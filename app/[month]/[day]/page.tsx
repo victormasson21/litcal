@@ -45,6 +45,7 @@ export default async function DayPage({ params }: Props) {
   const currentDayIndex = availableDays.findIndex((d) => d.day === day);
 
   // Navigation object to store prev/next day info
+  // TODO: remove text if un-used
   const navigation = {
     left: { url: "", text: "Previous" },
     center: { url: `/${monthName}`, text: monthName },
