@@ -4,22 +4,24 @@ import { getQuoteDaysByMonth } from "./lib/helpers";
 import { supabase } from "./lib/supabase";
 
 export default async function Home() {
-  const { data: data, error } = await supabase
+  const { data, error } = await supabase
     .from("quotes_dev")
     .select("month, day")
     .eq("display", true)
     .not("quote", "is", null);
 
-  /**
-   * Playground data
-
-  const { data: playgroundData } = await supabase
-  .from("quotes_dev")
-  .select("month, day, quote");
+  /*
+    // Playground data
+    const { data: playgroundData } = await supabase
+      .from("quotes_dev")
+      .select("author, book")
+      .eq("display", true)
+      .not("quote", "is", null);
   
-  console.log({ playgroundData });
-
+    console.log({ playgroundData });
   */
+
+  console.log(data?.length);
 
   if (error) throw error;
 

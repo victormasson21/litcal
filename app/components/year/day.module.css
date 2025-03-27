@@ -1,7 +1,14 @@
 .dayCircle {
   text-align: center;
-  min-width: 20px;
-  min-height: 20px;
+  min-width: 16px;
+  min-height: 16px;
   border: 1px black solid;
   border-radius: 50%;
+}
+
+@media screen and (min-width: 768px) {
+  .dayCircle {
+    min-width: 20px;
+    min-height: 20px;
+  }
 }
