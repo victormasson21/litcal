@@ -6,7 +6,7 @@
 }
 
 .title {
-  margin-bottom: 24px;
+  margin-bottom: 16px;
   width: fit-content;
   align-self: flex-end;
   text-transform: capitalize;
@@ -15,10 +15,23 @@
 .weeksContainer {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 5px;
 }
 
 .week {
   display: flex;
-  gap: 8px;
+  gap: 5px;
+}
+
+@media screen and (min-width: 768px) {
+  .title {
+    margin-bottom: 24px;
+  }
+
+  .weeksContainer {
+    gap: 8px;
+  }
+  .week {
+    gap: 8px;
+  }
 }
