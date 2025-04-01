@@ -1,9 +1,9 @@
 import type { ReactNode } from "react";
 import Image, { StaticImageData } from "next/image";
-import smallbud from "./images/smallbud.png";
-import leave from "./images/leave.png";
-import snowflake from "./images/snowflake.png";
-import sun from "./images/sun.png";
+import spring from "./images/spring.png";
+import autumn from "./images/autumn.png";
+import winter from "./images/winter.png";
+import summer from "./images/summer.png";
 import styles from "./seasons.module.css";
 
 export type SeasonKey = "winter" | "spring" | "summer" | "autumn";
@@ -57,27 +57,25 @@ export const seasonsData: Record<SeasonKey, SeasonImage> = {
   winter: {
     className: "winter",
     alt: "Etching of a snowflake",
-    src: snowflake,
+    src: winter,
     style: {
       width: "fit-content",
-      height: "90%",
-      transform: "rotate(10deg)",
+      height: "100%",
     },
   },
   spring: {
     className: "spring",
     alt: "Etching of a bud",
-    src: smallbud,
+    src: spring,
     style: {
       width: "fit-content",
-      height: "130%",
-      transform: "rotate(-30deg)",
+      height: "100%",
     },
   },
   summer: {
     className: "summer",
     alt: "Etching of the sun",
-    src: sun,
+    src: summer,
     style: {
       width: "fit-content",
       height: "100%",
@@ -86,11 +84,10 @@ export const seasonsData: Record<SeasonKey, SeasonImage> = {
   autumn: {
     className: "autumn",
     alt: "Etching of a chestnut leaf",
-    src: leave,
+    src: autumn,
     style: {
       width: "fit-content",
-      height: "110%",
-      transform: "rotate(20deg)",
+      height: "100%",
     },
   },
 };
