@@ -15,13 +15,12 @@
 }
 
 .winter {
-  height: 90%;
-  transform: rotate(10deg);
+  height: 100%;
+  transform: rotate(45deg);
 }
 
 .spring {
-  height: 130%;
-  transform: rotate(-30deg);
+  height: 100%;
 }
 
 .summer {
@@ -30,8 +29,7 @@
 }
 
 .autumn {
-  height: 110%;
-  transform: rotate(20deg);
+  height: 100%;
 }
 
 .rotate {
