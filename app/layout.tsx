@@ -5,8 +5,8 @@ import "@/app/globals.css";
 const caslon = Libre_Caslon_Text({ weight: "400", subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "LitCal",
-  description: "Another pointless project",
+  title: "Seasons",
+  description: "A literary calendar",
 };
 
 export default async function RootLayout({
