@@ -1,16 +1,9 @@
 import { Day as DayComponent } from "@/app/components/day/day";
-import { Day, MonthName } from "@/app/types/types";
+import { Day, DayPageProps } from "@/app/types/types";
 import { DatabaseService } from "@/app/lib/database";
 import { NavigationService } from "@/app/lib/navigation";
 
-type Props = {
-  params: Promise<{
-    month: MonthName;
-    day: string;
-  }>;
-};
-
-export default async function DayPage({ params }: Props) {
+export default async function DayPage({ params }: DayPageProps) {
   const { month: monthName, day: dayPath } = await params;
   const day: Day = Number(dayPath);
 

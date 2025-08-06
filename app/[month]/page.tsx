@@ -1,16 +1,10 @@
 import { Month as MonthComponent } from "@/app/components/month/month";
-import { MonthName } from "@/app/types/types";
+import { MonthPageProps } from "@/app/types/types";
 import { DatabaseService } from "@/app/lib/database";
 import { getDays } from "@/app/lib/helpers";
 import { monthsMap } from "@/app/lib/months";
 
-type Props = {
-  params: Promise<{
-    month: MonthName;
-  }>;
-};
-
-export default async function MonthPage({ params }: Props) {
+export default async function MonthPage({ params }: MonthPageProps) {
   const { month: monthName } = await params;
 
   /* TODO: improve to remove defensive coding? */

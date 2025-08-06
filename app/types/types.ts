@@ -30,3 +30,19 @@ export interface Quote {
 export type Quotes = Quote[];
 
 export type QuoteDaysByMonth = Record<MonthName, Day[]>;
+
+// Page component prop interfaces
+export interface PageParams<T = string> {
+  params: Promise<T>;
+}
+
+export interface MonthPageParams {
+  month: MonthName;
+}
+
+export interface DayPageParams extends MonthPageParams {
+  day: string;
+}
+
+export type MonthPageProps = PageParams<MonthPageParams>;
+export type DayPageProps = PageParams<DayPageParams>;
