@@ -16,10 +16,10 @@ export const monthsMap: Record<MonthName, Month> = {
   june: { dayCount: 30, mainIcon: "summer", icons: ["spring", "summer"] },
   july: { dayCount: 31, mainIcon: "summer", icons: ["spring", "summer"] },
   august: { dayCount: 31, mainIcon: "summer", icons: ["summer", "autumn"] },
-  septembre: { dayCount: 30, mainIcon: "autumn", icons: ["summer", "autumn"] },
-  octobre: { dayCount: 31, mainIcon: "autumn", icons: ["summer", "autumn"] },
-  novembre: { dayCount: 30, mainIcon: "autumn", icons: ["autumn", "winter"] },
-  decembre: { dayCount: 31, mainIcon: "winter", icons: ["autumn", "winter"] },
+  september: { dayCount: 30, mainIcon: "autumn", icons: ["summer", "autumn"] },
+  october: { dayCount: 31, mainIcon: "autumn", icons: ["summer", "autumn"] },
+  november: { dayCount: 30, mainIcon: "autumn", icons: ["autumn", "winter"] },
+  december: { dayCount: 31, mainIcon: "winter", icons: ["autumn", "winter"] },
 };
 
 export const monthNames: MonthName[] = Object.keys(monthsMap) as MonthName[];

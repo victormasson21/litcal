@@ -7,10 +7,10 @@ export type MonthName =
   | "june"
   | "july"
   | "august"
-  | "septembre"
-  | "octobre"
-  | "novembre"
-  | "decembre";
+  | "september"
+  | "october"
+  | "november"
+  | "december";
 
 export type dayCount = 29 | 30 | 31;
 
