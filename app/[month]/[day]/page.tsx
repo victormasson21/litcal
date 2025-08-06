@@ -33,7 +33,8 @@ export default async function DayPage({ params }: Props) {
     .not("quote", "is", null)
     .order("day", { ascending: true });
 
-  if (error || availableDaysError) throw error;
+  if (error) throw error;
+  if (availableDaysError) throw availableDaysError;
 
   if (data.length === 0)
     throw new Error(`No matched quote - month: ${monthName} day: ${dayPath}`);
