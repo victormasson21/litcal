@@ -21,26 +21,31 @@ export function Month({ monthName, allDays, quoteDays }: Props): ReactNode {
   return (
     <Template
       header={
-        <div className={styles.headerContainer}>
+        <header className={styles.headerContainer}>
           <Seasons seasons={[leftIcon]} />
           <h1 className={styles.headerText}>{monthName}</h1>
           <Seasons seasons={[rightIcon]} />
-        </div>
+        </header>
       }
       body={
-        <ol className={styles.list}>
-          {allDays.map((day) => {
-            const hasQuote = quoteDays.includes(day);
-            return (
-              <Day
-                key={`${monthName}-${day}`}
-                day={day}
-                monthName={monthName}
-                hasQuote={hasQuote}
-              />
-            );
-          })}
-        </ol>
+        <main>
+          <ol 
+            className={styles.list}
+            aria-label={`Days in ${monthName} with available quotes`}
+          >
+            {allDays.map((day) => {
+              const hasQuote = quoteDays.includes(day);
+              return (
+                <Day
+                  key={`${monthName}-${day}`}
+                  day={day}
+                  monthName={monthName}
+                  hasQuote={hasQuote}
+                />
+              );
+            })}
+          </ol>
+        </main>
       }
       footer={<Navigation links={getMonthNavLinks(monthName)} />}
       containerStyle={{ maxWidth: "660px" }}

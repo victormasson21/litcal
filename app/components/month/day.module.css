@@ -30,6 +30,20 @@
   text-decoration: none;
 }
 
+.link:focus {
+  outline: 2px solid #000000;
+}
+
+.link:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.link:focus-visible {
+  outline: 2px solid #004089;
+  outline-offset: 2px;
+}
+
 .unavailable {
-  opacity: 0.3;
+  opacity: 0.6;
+  color: #666;
 }
