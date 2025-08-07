@@ -16,11 +16,17 @@ export const Day = ({ day, hasQuote, monthName }: Props): ReactNode => {
         <a
           href={getDayPath(monthName, day)}
           className={`${styles.text} ${styles.link}`}
+          aria-label={`Read quote for ${monthName} ${day}`}
         >
           {day}
         </a>
       ) : (
-        <p className={`${styles.text} ${styles.unavailable}`}>{day}</p>
+        <span 
+          className={`${styles.text} ${styles.unavailable}`}
+          aria-label={`No quote available for ${monthName} ${day}`}
+        >
+          {day}
+        </span>
       )}
     </li>
   );

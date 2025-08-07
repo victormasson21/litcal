@@ -16,8 +16,8 @@ export const Year = ({ quoteDaysByMonth }: Props) => {
   return (
     <Template
       header={
-        <div className={styles.header}>
-          <div className={styles.icons}>
+        <header className={styles.header} role="banner">
+          <div className={styles.icons} aria-hidden="true">
             {seasons.slice(0, 2).map((key) => (
               <Season key={key} season={key} />
             ))}
@@ -28,23 +28,25 @@ export const Year = ({ quoteDaysByMonth }: Props) => {
             <p className={styles.subtitle}>a literary calendar</p>
           </div>
 
-          <div className={styles.icons}>
+          <div className={styles.icons} aria-hidden="true">
             {seasons.slice(2).map((key) => (
               <Season key={key} season={key} />
             ))}
           </div>
-        </div>
+        </header>
       }
       body={
-        <div className={styles.body}>
-          {monthNames.map((monthName: MonthName) => (
-            <Month
-              key={monthName}
-              monthName={monthName}
-              quotes={quoteDaysByMonth[monthName]}
-            />
-          ))}
-        </div>
+        <main role="main">
+          <div  className={styles.body} role="grid" aria-label="Calendar months">
+            {monthNames.map((monthName: MonthName) => (
+              <Month
+                key={monthName}
+                monthName={monthName}
+                quotes={quoteDaysByMonth[monthName]}
+              />
+            ))}
+          </div>
+        </main>
       }
       containerStyle={{ maxWidth: "700px" }}
     />

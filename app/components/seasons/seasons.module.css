@@ -44,3 +44,14 @@
     transform: rotate(360deg);
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .summer,
+  .rotate {
+    animation: none;
+  }
+  
+  .container {
+    animation: none;
+  }
+}

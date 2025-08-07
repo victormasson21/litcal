@@ -19,6 +19,7 @@ export class DatabaseService {
       .eq('display', true)
       .not('quote', 'is', null);
 
+
     // Check for duplicates
     const duplicates = data?.filter((item, index, arr) => 
       arr.findIndex(other => other.day === item.day && other.month === item.month) !== index
