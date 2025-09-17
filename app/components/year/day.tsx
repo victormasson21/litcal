@@ -1,4 +1,3 @@
-import type { ReactNode } from "react";
 import styles from "./day.module.css";
 
 type Props = {
@@ -6,7 +5,7 @@ type Props = {
   hasQuote: boolean;
 };
 
-export const Day = ({ day, hasQuote }: Props): ReactNode => {
+export const Day = ({ day, hasQuote }: Props) => {
   return (
     <div
       key={day}

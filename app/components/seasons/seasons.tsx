@@ -1,4 +1,3 @@
-import type { ReactNode } from "react";
 import Image, { StaticImageData } from "next/image";
 import spring from "./images/spring.png";
 import autumn from "./images/autumn.png";
@@ -18,7 +17,7 @@ type Props = {
   seasons: SeasonKey[];
 };
 
-export const Seasons = ({ seasons }: Props): ReactNode => (
+export const Seasons = ({ seasons }: Props) => (
   <div className={styles.container}>
     {seasons.map((key) => {
       const { className, src, alt } = seasonsData[key];
@@ -41,7 +40,7 @@ export const Season = ({
 }: {
   season: SeasonKey;
   style?: object;
-}): ReactNode => {
+}) => {
   const { className, src, alt, style: baseStyle } = seasonsData[season];
   return (
     <Image

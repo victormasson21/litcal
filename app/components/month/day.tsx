@@ -1,6 +1,5 @@
 import { getDayPath } from "@/app/lib/helpers";
 import { Day as DayType, MonthName } from "@/app/types/types";
-import { ReactNode } from "react";
 import styles from "./day.module.css";
 
 type Props = {
@@ -9,7 +8,7 @@ type Props = {
   hasQuote: boolean;
 };
 
-export const Day = ({ day, hasQuote, monthName }: Props): ReactNode => {
+export const Day = ({ day, hasQuote, monthName }: Props) => {
   return (
     <li key={day} className={styles.container}>
       {hasQuote ? (
@@ -21,7 +20,7 @@ export const Day = ({ day, hasQuote, monthName }: Props): ReactNode => {
           {day}
         </a>
       ) : (
-        <span 
+        <span
           className={`${styles.text} ${styles.unavailable}`}
           aria-label={`No quote available for ${monthName} ${day}`}
         >

@@ -1,5 +1,4 @@
 import { MonthName } from "@/app/types/types";
-import { ReactNode } from "react";
 import { Day } from "./day";
 import { Seasons } from "../seasons/seasons";
 import { Navigation } from "@/app/components/nav/nav";
@@ -14,7 +13,7 @@ type Props = {
   quoteDays: number[];
 };
 
-export function Month({ monthName, allDays, quoteDays }: Props): ReactNode {
+export function Month({ monthName, allDays, quoteDays }: Props) {
   const { icons } = monthsMap[monthName];
   const [leftIcon, rightIcon] = icons;
 
@@ -29,7 +28,7 @@ export function Month({ monthName, allDays, quoteDays }: Props): ReactNode {
       }
       body={
         <main>
-          <ol 
+          <ol
             className={styles.list}
             aria-label={`Days in ${monthName} with available quotes`}
           >

@@ -6,10 +6,7 @@ import { monthsMap } from "@/app/lib/months";
 
 export default async function MonthPage({ params }: MonthPageProps) {
   const { month: monthName } = await params;
-
-  /* TODO: improve to remove defensive coding? */
   const dayCount = monthName && monthsMap[monthName].dayCount;
-
   const quoteDays = await DatabaseService.getQuoteDaysForMonth(monthName);
   const allDays = getDays(dayCount);
 

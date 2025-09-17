@@ -1,4 +1,3 @@
-import type { ReactNode } from "react";
 import { monthsMap } from "@/app/lib/months";
 import { getWeeks } from "@/app/lib/helpers";
 import { Day } from "./day";
@@ -11,7 +10,7 @@ type Props = {
   quotes: DayType[];
 };
 
-export const Month = ({ monthName, quotes }: Props): ReactNode => {
+export const Month = ({ monthName, quotes }: Props) => {
   const dayCount = monthsMap[monthName].dayCount;
 
   const weeks = getWeeks(dayCount);

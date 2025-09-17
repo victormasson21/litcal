@@ -23,7 +23,6 @@ export const Day = ({
   book,
   navigation,
 }: Props) => {
-  /* TODO: improve to remove defensive coding? */
   const mainIcon = monthName && monthsMap[monthName].mainIcon;
   const { src, alt } = seasonsData[mainIcon];
 
@@ -39,7 +38,6 @@ export const Day = ({
       body={
         <div className={styles.body}>
           <p className={styles.paragraph}>{quote}</p>
-          {/* TODO: improve to remove defensive coding? */}
 
           {mainIcon && (
             <Image
