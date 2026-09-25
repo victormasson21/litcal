@@ -2,6 +2,7 @@ import Link from "next/link";
 import styles from "./nav.module.css";
 import Image from "next/image";
 import type { ReactNode } from "react";
+import { SwipeNavigation } from "./swipe";
 
 type Link = {
   url: string;
@@ -38,6 +39,7 @@ export const Navigation = ({ links }: { links: NavLinks }) => {
       <Arrow url={right.url} label="Go to next page">
         &rarr;
       </Arrow>
+      <SwipeNavigation links={links} />
     </nav>
   );
 };
