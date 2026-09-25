@@ -18,13 +18,13 @@ export type Day = number;
 
 export interface Quote {
   id: number;
-  created_at: string;
   day: Day;
   month: MonthName;
   quote: string;
   year: string;
   author: string;
   book: string;
+  display: boolean;
 }
 
 export type Quotes = Quote[];
