@@ -11,18 +11,21 @@ export const SwipeNavigation = ({ links }: { links: NavLinks }) => {
   const { left, right } = links;
 
   useEffect(() => {
-    const getTarget = (distance: number): string => {
-      if (distance > SWIPE_THRESHOLD) return left.url;
-      if (distance < -SWIPE_THRESHOLD) return right.url;
+    const getTarget = (distanceX: number, distanceY: number): string => {
+      if (Math.abs(distanceX) < Math.abs(distanceY)) return "";
+      if (distanceX > SWIPE_THRESHOLD) return left.url;
+      if (distanceX < -SWIPE_THRESHOLD) return right.url;
       return "";
     };
 
-    let startX = 0;
+    let start = { x: 0, y: 0 };
     const onTouchStart = (event: TouchEvent) => {
-      startX = event.touches[0].clientX;
+      const { clientX, clientY } = event.touches[0];
+      start = { x: clientX, y: clientY };
     };
     const onTouchEnd = (event: TouchEvent) => {
-      const target = getTarget(event.changedTouches[0].clientX - startX);
+      const { clientX, clientY } = event.changedTouches[0];
+      const target = getTarget(clientX - start.x, clientY - start.y);
       if (target) router.push(target);
     };
 
