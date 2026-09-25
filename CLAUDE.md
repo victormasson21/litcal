@@ -52,7 +52,7 @@ npm run lint
 - **Month Component**: Calendar-style layout showing days with quote availability
 - **Day Component**: Quote display with navigation between adjacent quotes
 - **Seasons Component**: Visual seasonal indicators and theming
-- **Navigation Component**: Reusable nav bar with prev/center/next pattern
+- **Navigation Component**: Reusable nav bar with prev/center/next pattern; horizontal swipes follow the same links
 
 ### Quote Data
 File: `data/quotes.json`, an array of quotes
@@ -71,7 +71,7 @@ File: `data/quotes.json`, an array of quotes
 - Production config exports static site with optional base path support
 
 ### Environment Variables
-- `PAGES_BASE_PATH` (optional, for deployment)
+- `PAGES_BASE_PATH` (optional): set to `/litcal` by the GitHub Pages workflow
 
 ### Key Helper Functions
 - `getQuoteDaysByMonth()`: Transforms quote locations into month-grouped data structure
