@@ -71,7 +71,7 @@ File: `data/quotes.json`, an array of quotes
 - Production config exports static site with optional base path support
 
 ### Environment Variables
-- `PAGES_BASE_PATH` (optional): set to `/litcal` by the GitHub Pages workflow
+- `PAGES_BASE_PATH` (optional): set by the GitHub Pages workflow; empty while the site is served from the custom domain `seasons.vicm.dev`
 
 ### Key Helper Functions
 - `getQuoteDaysByMonth()`: Transforms quote locations into month-grouped data structure
