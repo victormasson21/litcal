@@ -1,6 +1,7 @@
 import Link from "next/link";
 import styles from "./nav.module.css";
 import Image from "next/image";
+import type { ReactNode } from "react";
 
 type Link = {
   url: string;
@@ -18,25 +19,42 @@ export const Navigation = ({ links }: { links: NavLinks }) => {
 
   return (
     <nav role="navigation" aria-label="Page navigation" className={styles.container}>
-      <Link className={styles.link} href={left.url} aria-label="Go to previous page">
+      <Arrow url={left.url} label="Go to previous page">
         &larr;
-      </Link>
+      </Arrow>
       <Link
         className={styles.link}
         href={center.url}
         aria-label="Go back to the previous level (month or year)"
       >
-        <Image 
-          src="/grid.svg" 
-          alt="Image of a grid" 
-          width={25} 
-          height={25} 
+        <Image
+          src="/grid.svg"
+          alt="Image of a grid"
+          width={25}
+          height={25}
           role="img"
         />
       </Link>
-      <Link className={styles.link} href={right.url} aria-label="Go to next page">
+      <Arrow url={right.url} label="Go to next page">
         &rarr;
-      </Link>
+      </Arrow>
     </nav>
   );
 };
+
+type ArrowProps = {
+  url: string;
+  label: string;
+  children: ReactNode;
+};
+
+const Arrow = ({ url, label, children }: ArrowProps) =>
+  url ? (
+    <Link className={styles.link} href={url} aria-label={label}>
+      {children}
+    </Link>
+  ) : (
+    <span className={`${styles.link} ${styles.disabled}`} aria-disabled="true">
+      {children}
+    </span>
+  );

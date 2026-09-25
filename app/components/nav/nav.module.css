@@ -19,3 +19,9 @@
     opacity: 1;
   }
 }
+
+.disabled,
+.disabled:hover {
+  color: rgba(0, 0, 0, 0.2);
+  opacity: 0.6;
+}
