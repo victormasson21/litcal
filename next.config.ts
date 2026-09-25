@@ -11,6 +11,7 @@ const developmentConfig: NextConfig = {
 const productionConfig: NextConfig = {
   ...baseConfig,
   output: "export",
+  images: { unoptimized: true },
   basePath: process.env.PAGES_BASE_PATH || "",
 };
 
