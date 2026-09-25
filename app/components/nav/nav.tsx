@@ -56,7 +56,7 @@ const Arrow = ({ url, label, children }: ArrowProps) =>
       {children}
     </Link>
   ) : (
-    <span className={`${styles.link} ${styles.disabled}`} aria-disabled="true">
+    <span className={`${styles.link} ${styles.disabled}`} aria-hidden="true">
       {children}
     </span>
   );
