@@ -59,10 +59,11 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Setup Pages
+        id: pages
         uses: actions/configure-pages@v3
       - name: Build with Next.js
         env:
-          PAGES_BASE_PATH: ${{ secrets.PAGES_BASE_PATH }}
+          PAGES_BASE_PATH: ${{ steps.pages.outputs.base_path }}
         run: pnpm next build
 
       - name: List output directory
