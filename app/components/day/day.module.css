@@ -27,8 +27,8 @@
 }
 
 .icon {
-  height: 80px;
-  animation: forward-spin 60s linear infinite;
+  height: 50px;
+  animation: tilted-spin 20s linear infinite;
 }
 
 .quoteDetails {
@@ -51,11 +51,11 @@
   text-align: right;
 }
 
-@keyframes forward-spin {
+@keyframes tilted-spin {
   from {
-    transform: rotate(0deg);
+    transform: perspective(800px) rotateY(0deg) rotate(0deg);
   }
   to {
-    transform: rotate(360deg);
+    transform: perspective(800px) rotateY(360deg) rotate(360deg);
   }
 }

@@ -25,7 +25,7 @@
 
 .summer {
   height: 100%;
-  animation: forward-spin 60s linear infinite;
+  animation: forward-spin 20s linear infinite;
 }
 
 .autumn {
@@ -33,7 +33,7 @@
 }
 
 .rotate {
-  animation: forward-spin 60s linear infinite;
+  animation: forward-spin 20s linear infinite;
 }
 
 @keyframes forward-spin {

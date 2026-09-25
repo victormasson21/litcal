@@ -44,7 +44,7 @@ export const Day = ({
               key={alt}
               src={src}
               alt={alt}
-              height={80}
+              height={50}
               className={styles.icon}
             />
           )}
