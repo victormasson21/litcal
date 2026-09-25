@@ -30,8 +30,8 @@ export const Navigation = ({ links }: { links: NavLinks }) => {
         <Image
           src="/grid.svg"
           alt="Image of a grid"
-          width={25}
-          height={25}
+          width={28}
+          height={28}
           role="img"
         />
       </Link>
