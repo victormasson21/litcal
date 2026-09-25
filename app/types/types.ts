@@ -29,7 +29,7 @@ export interface Quote {
 
 export type Quotes = Quote[];
 
-export type QuoteDaysByMonth = Record<MonthName, Day[]>;
+export type QuoteDaysByMonth = Partial<Record<MonthName, Day[]>>;
 
 // Page component prop interfaces
 export interface PageParams<T = string> {

@@ -42,7 +42,7 @@ export const Year = ({ quoteDaysByMonth }: Props) => {
               <Month
                 key={monthName}
                 monthName={monthName}
-                quotes={quoteDaysByMonth[monthName]}
+                quotes={quoteDaysByMonth[monthName] ?? []}
               />
             ))}
           </div>
