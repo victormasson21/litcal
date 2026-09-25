@@ -15,11 +15,9 @@
 .list {
   height: 100%;
   list-style: none;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  padding: 16px 0;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  padding: 16px 8px;
   font-size: 30px;
   transition: font-size 0.6s;
 }
