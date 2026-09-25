@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Litcal is a Next.js application that displays a literary calendar of quotes organized by dates. Users can browse quotes by year view, month view, or individual day view. The application uses Supabase as its database backend and is deployed on Vercel.
+Litcal is a Next.js application that displays a literary calendar of quotes organized by dates. Users can browse quotes by year view, month view, or individual day view. Quotes are read from a JSON file at build time and the site is exported as static files.
 
 ## Common Development Commands
 
@@ -39,9 +39,8 @@ npm run lint
 - **Day Pages** (`app/[month]/[day]/page.tsx`): Individual quote display
 
 ### Data Layer
-- **Database Service** (`app/lib/database.ts`): Centralized Supabase queries with well-documented methods for different use cases (build-time, month pages, day pages)
+- **Database Service** (`app/lib/database.ts`): Centralized queries over `data/quotes.json` with well-documented methods for different use cases (build-time, month pages, day pages)
 - **Navigation Service** (`app/lib/navigation.ts`): Handles prev/next navigation logic across months and days
-- **Supabase Client** (`app/lib/supabase.ts`): Database connection using environment variables
 
 ### Type System
 - **Core Types** (`app/types/types.ts`): MonthName union type, Quote interface, page prop interfaces
@@ -55,9 +54,9 @@ npm run lint
 - **Seasons Component**: Visual seasonal indicators and theming
 - **Navigation Component**: Reusable nav bar with prev/center/next pattern
 
-### Database Schema (Supabase)
-Table: `quotes_dev`
-- `id`: Primary key
+### Quote Data
+File: `data/quotes.json`, an array of quotes
+- `id`: Unique identifier
 - `day`: Day of month (1-31)
 - `month`: Month name (lowercase string)
 - `quote`: Quote text
@@ -72,9 +71,6 @@ Table: `quotes_dev`
 - Production config exports static site with optional base path support
 
 ### Environment Variables
-Required for Supabase connection:
-- `NEXT_PUBLIC_SUPABASE_URL`
-- `NEXT_PUBLIC_SUPABASE_ANON_KEY`
 - `PAGES_BASE_PATH` (optional, for deployment)
 
 ### Key Helper Functions
