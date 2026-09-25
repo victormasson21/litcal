@@ -1,11 +1,21 @@
 import quotesData from '@/data/quotes.json';
 import { Quote, MonthName, Day } from '@/app/types/types';
+import { monthsMap } from './months';
 
 type QuoteLocation = { day: number; month: MonthName };
 
 const quotes = (quotesData as Quote[])
   .filter(({ display }) => display)
   .sort((a, b) => a.day - b.day);
+
+const hasValidDate = ({ month, day }: Quote): boolean =>
+  month in monthsMap && day >= 1 && day <= monthsMap[month].dayCount;
+
+const invalidQuoteIds = quotes.filter((quote) => !hasValidDate(quote)).map(({ id }) => id);
+
+if (invalidQuoteIds.length > 0) {
+  throw new Error(`Invalid date for quotes ${invalidQuoteIds.join(', ')} in data/quotes.json`);
+}
 
 const toLocation = ({ day, month }: Quote): QuoteLocation => ({ day, month });
 
