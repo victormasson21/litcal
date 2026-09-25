@@ -6,9 +6,9 @@ A potentially lifelong mission to build a calendar from quotes found in the book
 
 ### Deployed
 
-[victormasson21.github.io/litcal](https://victormasson21.github.io/litcal/)
+[seasons.vicm.dev](https://seasons.vicm.dev)
 
-Every push to `main` builds the static site and deploys it to GitHub Pages (`.github/workflows/nextjs.yml`).
+Every push to `main` builds the static site and deploys it to GitHub Pages (`.github/workflows/nextjs.yml`). The custom domain is set in the repo's Pages settings, with a DNS-only `CNAME` record for `seasons` pointing to `victormasson21.github.io` in Cloudflare.
 
 ### Run locally
 
