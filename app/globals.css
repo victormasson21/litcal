@@ -38,7 +38,6 @@ body {
   align-items: center;
 
   min-width: 300px;
-  padding: 16px;
 }
 
 @media screen and (min-width: 480px) {
