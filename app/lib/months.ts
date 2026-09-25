@@ -4,7 +4,7 @@ type Season = "winter" | "spring" | "summer" | "autumn";
 interface Month {
   dayCount: dayCount;
   mainIcon: Season;
-  icons: Season[];
+  icons: [Season, Season];
 }
 
 export const monthsMap: Record<MonthName, Month> = {

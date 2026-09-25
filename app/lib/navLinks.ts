@@ -1,12 +1,10 @@
 import { MonthName } from "@/app/types/types";
-import { monthNames } from "./months";
+import { getNextMonth, getPreviousMonth } from "./helpers";
 import { NavLinks } from "@/app/components/nav/nav";
 
 export const getMonthNavLinks = (monthName: MonthName): NavLinks => {
-  const monthIndex = monthNames.indexOf(monthName);
-  const prevMonth =
-    monthNames[monthIndex - 1] || monthNames[monthNames.length - 1];
-  const nextMonth = monthNames[monthIndex + 1] || monthNames[0];
+  const prevMonth = getPreviousMonth(monthName);
+  const nextMonth = getNextMonth(monthName);
   // TODO: remove text if un-used
   return {
     left: { url: `/${prevMonth}`, text: prevMonth.slice(0, 3) },
