@@ -3,6 +3,7 @@ import styles from "./nav.module.css";
 import Image from "next/image";
 import type { ReactNode } from "react";
 import { SwipeNavigation } from "./swipe";
+import grid from "./grid.svg";
 
 type Link = {
   url: string;
@@ -29,7 +30,7 @@ export const Navigation = ({ links }: { links: NavLinks }) => {
         aria-label="Go back to the previous level (month or year)"
       >
         <Image
-          src="/grid.svg"
+          src={grid}
           alt="Image of a grid"
           width={28}
           height={28}
