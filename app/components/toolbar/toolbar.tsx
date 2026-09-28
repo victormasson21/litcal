@@ -3,7 +3,7 @@ import styles from "./toolbar.module.css";
 import template from "../template.module.css";
 import add from "./add.svg";
 import bell from "./bell.svg";
-import question from "./question.svg";
+import about from "./about.svg";
 
 export const SHOW_TOOLBAR = true;
 
@@ -18,7 +18,7 @@ type Action = {
 const actions: ReadonlyArray<Action> = [
   { label: "Add a quote", icon: add, show: true },
   { label: "Get notified", icon: bell, show: true },
-  { label: "About Seasons", icon: question, show: true },
+  { label: "About Seasons", icon: about, show: true },
 ];
 
 export const Toolbar = () => (
