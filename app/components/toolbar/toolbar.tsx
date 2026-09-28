@@ -17,8 +17,8 @@ type Action = {
 
 const actions: ReadonlyArray<Action> = [
   { label: "Add a quote", icon: add, show: true },
-  { label: "Get notified", icon: bell, show: true },
   { label: "About Seasons", icon: about, show: true },
+  { label: "Get notified", icon: bell, show: true },
 ];
 
 export const Toolbar = () => (
