@@ -16,9 +16,9 @@ body {
   background: radial-gradient(
       circle,
       rgba(255, 255, 255, 0.9) 0%,
-      rgba(255, 245, 228, 0.55) 100%
+      rgba(255, 245, 228, 0.8) 100%
     ),
-    url(./texture.svg);
+    url(./texture.svg) #fff5e4;
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
