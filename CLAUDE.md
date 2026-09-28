@@ -38,6 +38,7 @@ npm run lint
 - **Month Pages** (`app/[month]/page.tsx`): Month view showing all days with quote indicators
 - **Day Pages** (`app/[month]/[day]/page.tsx`): Individual quote display
 - **About Page** (`app/about/page.tsx`): Static copy inside the `Info` layout
+- **Notify Page** (`app/notify/page.tsx`): Copy plus the `Notify` client component, which reads push support and permission and asks for permission on tap
 
 ### Data Layer
 - **Database Service** (`app/lib/database.ts`): Centralized queries over `data/quotes.json` with well-documented methods for different use cases (build-time, month pages, day pages)
