@@ -37,7 +37,8 @@ npm run lint
 - **Home Page** (`app/page.tsx`): Year view showing all months with quote availability
 - **Month Pages** (`app/[month]/page.tsx`): Month view showing all days with quote indicators
 - **Day Pages** (`app/[month]/[day]/page.tsx`): Individual quote display
-- **About Page** (`app/about/page.tsx`): Static copy inside the `Info` layout, plus a Notifications section with the `Notify` client component, which reads push support and permission and asks for permission on tap; linked from the bottom of the home page
+- **About Page** (`app/about/page.tsx`): Static copy inside the `Info` layout, linked from the bottom of the home page; a Notifications section with the `Notify` client component (reads push support and permission, asks for permission on tap) sits behind `SHOW_NOTIFICATIONS`, off for now
+- **Flags** (`app/lib/flags.ts`): `SHOW_TOOLBAR` and `SHOW_NOTIFICATIONS`; they live outside client modules because a value imported from a `"use client"` file reaches a server component as a client reference, which is always truthy
 
 ### Data Layer
 - **Database Service** (`app/lib/database.ts`): Centralized queries over `data/quotes.json` with well-documented methods for different use cases (build-time, month pages, day pages)
@@ -54,7 +55,7 @@ npm run lint
 - **Day Component**: Quote display with navigation between adjacent quotes
 - **Seasons Component**: Visual seasonal indicators and theming
 - **Navigation Component**: Reusable nav bar with prev/center/next pattern; horizontal swipes follow the same links
-- **Toolbar Component**: Home page bottom bar of links (add, about, notify), hidden for now; `SHOW_TOOLBAR` and each action's `show` flag switch them on and off
+- **Toolbar Component**: Home page bottom bar of links (add, about, notify), hidden for now; `SHOW_TOOLBAR` in `app/lib/flags.ts` and each action's `show` flag switch them on and off
 - **Info Component**: Title header, text body, footer with the home link only; used by the toolbar's pages
 - **Template Component**: Sticky header, scrolling body, sticky footer; `bar`/`barItem` styles shared by the bottom bars
 

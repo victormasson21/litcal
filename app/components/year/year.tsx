@@ -6,7 +6,8 @@ import type { SeasonKey } from "@/app/components/seasons/seasons";
 import styles from "./year.module.css";
 import Link from "next/link";
 import { Template } from "../template";
-import { SHOW_TOOLBAR, Toolbar } from "../toolbar/toolbar";
+import { Toolbar } from "../toolbar/toolbar";
+import { SHOW_TOOLBAR } from "@/app/lib/flags";
 
 type Props = {
   quoteDaysByMonth: QuoteDaysByMonth;

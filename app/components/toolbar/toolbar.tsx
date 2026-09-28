@@ -5,8 +5,6 @@ import add from "./add.svg";
 import bell from "./bell.svg";
 import about from "./about.svg";
 
-export const SHOW_TOOLBAR = false;
-
 const ICON_SIZE = 32;
 
 type Action = {
