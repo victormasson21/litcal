@@ -5,6 +5,7 @@ import { seasonsData, Season } from "@/app/components/seasons/seasons";
 import type { SeasonKey } from "@/app/components/seasons/seasons";
 import styles from "./year.module.css";
 import { Template } from "../template";
+import { SHOW_TOOLBAR, Toolbar } from "../toolbar/toolbar";
 
 type Props = {
   quoteDaysByMonth: QuoteDaysByMonth;
@@ -48,6 +49,7 @@ export const Year = ({ quoteDaysByMonth }: Props) => {
           </div>
         </main>
       }
+      footer={SHOW_TOOLBAR && <Toolbar />}
       containerStyle={{ maxWidth: "700px" }}
     />
   );
