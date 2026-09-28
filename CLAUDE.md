@@ -37,6 +37,7 @@ npm run lint
 - **Home Page** (`app/page.tsx`): Year view showing all months with quote availability
 - **Month Pages** (`app/[month]/page.tsx`): Month view showing all days with quote indicators
 - **Day Pages** (`app/[month]/[day]/page.tsx`): Individual quote display
+- **About Page** (`app/about/page.tsx`): Static copy inside the `Info` layout
 
 ### Data Layer
 - **Database Service** (`app/lib/database.ts`): Centralized queries over `data/quotes.json` with well-documented methods for different use cases (build-time, month pages, day pages)
@@ -53,7 +54,8 @@ npm run lint
 - **Day Component**: Quote display with navigation between adjacent quotes
 - **Seasons Component**: Visual seasonal indicators and theming
 - **Navigation Component**: Reusable nav bar with prev/center/next pattern; horizontal swipes follow the same links
-- **Toolbar Component**: Home page bottom bar (add, notify, about); `SHOW_TOOLBAR` and each action's `show` flag switch them off
+- **Toolbar Component**: Home page bottom bar of links (add, about, notify); `SHOW_TOOLBAR` and each action's `show` flag switch them off
+- **Info Component**: Title header, text body, footer with the home link only; used by the toolbar's pages
 - **Template Component**: Sticky header, scrolling body, sticky footer; `bar`/`barItem` styles shared by the bottom bars
 
 ### Quote Data

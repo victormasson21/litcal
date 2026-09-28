@@ -29,19 +29,7 @@ export const Navigation = ({ links }: { links: NavLinks }) => {
       <Arrow url={left.url} label="Go to previous page">
         &larr;
       </Arrow>
-      <Link
-        className={template.barItem}
-        href={center.url}
-        aria-label="Go back to the previous level (month or year)"
-      >
-        <Image
-          src={grid}
-          alt="Image of a grid"
-          width={28}
-          height={28}
-          role="img"
-        />
-      </Link>
+      <HomeLink url={center.url} />
       <Arrow url={right.url} label="Go to next page">
         &rarr;
       </Arrow>
@@ -49,6 +37,16 @@ export const Navigation = ({ links }: { links: NavLinks }) => {
     </nav>
   );
 };
+
+export const HomeLink = ({ url }: { url: string }) => (
+  <Link
+    className={template.barItem}
+    href={url}
+    aria-label="Go back to the previous level (month or year)"
+  >
+    <Image src={grid} alt="Image of a grid" width={28} height={28} role="img" />
+  </Link>
+);
 
 type ArrowProps = {
   url: string;
