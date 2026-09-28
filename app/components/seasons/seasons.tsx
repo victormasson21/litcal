@@ -59,7 +59,6 @@ export const seasonsData: Record<SeasonKey, SeasonImage> = {
     src: winter,
     style: {
       width: "fit-content",
-      height: "100%",
     },
   },
   spring: {
@@ -68,7 +67,6 @@ export const seasonsData: Record<SeasonKey, SeasonImage> = {
     src: spring,
     style: {
       width: "fit-content",
-      height: "100%",
     },
   },
   summer: {
@@ -77,7 +75,6 @@ export const seasonsData: Record<SeasonKey, SeasonImage> = {
     src: summer,
     style: {
       width: "fit-content",
-      height: "100%",
     },
   },
   autumn: {
@@ -86,7 +83,6 @@ export const seasonsData: Record<SeasonKey, SeasonImage> = {
     src: autumn,
     style: {
       width: "fit-content",
-      height: "100%",
     },
   },
 };

@@ -15,21 +15,21 @@
 }
 
 .winter {
-  height: 100%;
+  height: 80%;
   transform: rotate(45deg);
 }
 
 .spring {
-  height: 100%;
+  height: 80%;
 }
 
 .summer {
-  height: 100%;
+  height: 80%;
   animation: forward-spin 20s linear infinite;
 }
 
 .autumn {
-  height: 100%;
+  height: 80%;
 }
 
 .rotate {
