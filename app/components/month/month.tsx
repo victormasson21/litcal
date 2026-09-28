@@ -20,11 +20,11 @@ export function Month({ monthName, allDays, quoteDays }: Props) {
   return (
     <Template
       header={
-        <header className={styles.headerContainer}>
+        <div className={styles.headerContainer}>
           <Seasons seasons={[leftIcon]} />
           <h1 className={styles.headerText}>{monthName}</h1>
           <Seasons seasons={[rightIcon]} />
-        </header>
+        </div>
       }
       body={
         <ol

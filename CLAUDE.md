@@ -53,6 +53,8 @@ npm run lint
 - **Day Component**: Quote display with navigation between adjacent quotes
 - **Seasons Component**: Visual seasonal indicators and theming
 - **Navigation Component**: Reusable nav bar with prev/center/next pattern; horizontal swipes follow the same links
+- **Toolbar Component**: Home page bottom bar (add, notify, about); `SHOW_TOOLBAR` and each action's `show` flag switch them off
+- **Template Component**: Sticky header, scrolling body, sticky footer; `bar`/`barItem` styles shared by the bottom bars
 
 ### Quote Data
 File: `data/quotes.json`, an array of quotes

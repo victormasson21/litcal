@@ -1,30 +1,9 @@
-.container {
-  width: 100%;
-  max-width: 500px;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  padding: 8px 16px;
-}
-
 .button {
   display: flex;
   align-items: center;
-  padding: 16px;
   background: none;
   border: none;
   color: inherit;
+  font-family: inherit;
   cursor: pointer;
-
-  font: inherit;
-  font-weight: bold;
-  font-size: 36px;
-  line-height: 1;
-
-  opacity: 0.8;
-  transition: opacity 0.6s;
-
-  &:hover {
-    opacity: 1;
-  }
 }

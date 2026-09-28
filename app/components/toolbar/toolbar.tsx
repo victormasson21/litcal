@@ -1,6 +1,7 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
 import styles from "./toolbar.module.css";
+import template from "../template.module.css";
 import bell from "./bell.svg";
 
 export const SHOW_TOOLBAR = true;
@@ -22,14 +23,14 @@ const actions: ReadonlyArray<Action> = [
 ];
 
 export const Toolbar = () => (
-  <div role="toolbar" aria-label="Page actions" className={styles.container}>
+  <div role="toolbar" aria-label="Page actions" className={template.bar}>
     {actions
       .filter(({ show }) => show)
       .map(({ label, icon }) => (
         <button
           key={label}
           type="button"
-          className={styles.button}
+          className={`${template.barItem} ${styles.button}`}
           aria-label={label}
         >
           {icon}

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import styles from "./nav.module.css";
+import template from "../template.module.css";
 import Image from "next/image";
 import type { ReactNode } from "react";
 import { SwipeNavigation } from "./swipe";
@@ -20,12 +21,16 @@ export const Navigation = ({ links }: { links: NavLinks }) => {
   const { left, center, right } = links;
 
   return (
-    <nav role="navigation" aria-label="Page navigation" className={styles.container}>
+    <nav
+      role="navigation"
+      aria-label="Page navigation"
+      className={`${template.bar} ${styles.container}`}
+    >
       <Arrow url={left.url} label="Go to previous page">
         &larr;
       </Arrow>
       <Link
-        className={styles.link}
+        className={template.barItem}
         href={center.url}
         aria-label="Go back to the previous level (month or year)"
       >
@@ -53,11 +58,14 @@ type ArrowProps = {
 
 const Arrow = ({ url, label, children }: ArrowProps) =>
   url ? (
-    <Link className={styles.link} href={url} aria-label={label}>
+    <Link className={template.barItem} href={url} aria-label={label}>
       {children}
     </Link>
   ) : (
-    <span className={`${styles.link} ${styles.disabled}`} aria-hidden="true">
+    <span
+      className={`${template.barItem} ${styles.disabled}`}
+      aria-hidden="true"
+    >
       {children}
     </span>
   );
