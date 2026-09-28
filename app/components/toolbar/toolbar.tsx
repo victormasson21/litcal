@@ -5,7 +5,7 @@ import add from "./add.svg";
 import bell from "./bell.svg";
 import about from "./about.svg";
 
-export const SHOW_TOOLBAR = true;
+export const SHOW_TOOLBAR = false;
 
 const ICON_SIZE = 32;
 
@@ -19,7 +19,7 @@ type Action = {
 const actions: ReadonlyArray<Action> = [
   { label: "Add a quote", icon: add, url: "/add", show: false },
   { label: "About Seasons", icon: about, url: "/about", show: true },
-  { label: "Get notified", icon: bell, url: "/notify", show: true },
+  { label: "Get notified", icon: bell, url: "/about#notifications", show: true },
 ];
 
 export const Toolbar = () => (

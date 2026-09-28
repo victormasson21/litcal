@@ -1,4 +1,5 @@
 import { Info } from "@/app/components/info/info";
+import { Notify } from "@/app/components/notify/notify";
 
 export default function AboutPage() {
   return (
@@ -16,6 +17,14 @@ export default function AboutPage() {
         The calendar grows as we read. A day without a passage is a day we
         have not found one for yet.
       </p>
+
+      <h2 id="notifications">Notifications</h2>
+      <p>
+        Every morning, Seasons can send you the day&apos;s passage as a
+        notification. Tap it to open the quote.
+      </p>
+      <p>Days without a passage stay quiet.</p>
+      <Notify />
     </Info>
   );
 }

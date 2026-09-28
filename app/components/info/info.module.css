@@ -11,8 +11,17 @@
 
   font-size: 18px;
   line-height: 28px;
+
+  & h2 {
+    padding-top: 16px;
+    font-size: 24px;
+    font-weight: normal;
+  }
 }
 
 .footer {
+  width: 100%;
+  display: flex;
   justify-content: center;
+  padding: 8px 16px;
 }

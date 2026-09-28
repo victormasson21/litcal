@@ -80,3 +80,10 @@
     gap: 48px;
   }
 }
+
+.about {
+  padding: 16px 16px 48px;
+  font-size: 18px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
