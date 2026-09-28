@@ -6,11 +6,5 @@ export default async function Home() {
   const quotesData = await DatabaseService.getAllQuoteLocations();
   const quoteDaysByMonth = getQuoteDaysByMonth(quotesData);
 
-  return (
-    <div>
-      <main>
-        <Year quoteDaysByMonth={quoteDaysByMonth} />
-      </main>
-    </div>
-  );
+  return <Year quoteDaysByMonth={quoteDaysByMonth} />;
 }

@@ -4,7 +4,10 @@ import { monthNames } from "@/app/lib/months";
 import { seasonsData, Season } from "@/app/components/seasons/seasons";
 import type { SeasonKey } from "@/app/components/seasons/seasons";
 import styles from "./year.module.css";
+import Link from "next/link";
 import { Template } from "../template";
+import { Toolbar } from "../toolbar/toolbar";
+import { SHOW_TOOLBAR } from "@/app/lib/flags";
 
 type Props = {
   quoteDaysByMonth: QuoteDaysByMonth;
@@ -16,7 +19,7 @@ export const Year = ({ quoteDaysByMonth }: Props) => {
   return (
     <Template
       header={
-        <header className={styles.header} role="banner">
+        <div className={styles.header}>
           <div className={styles.icons} aria-hidden="true">
             {seasons.slice(0, 2).map((key) => (
               <Season key={key} season={key} />
@@ -33,11 +36,11 @@ export const Year = ({ quoteDaysByMonth }: Props) => {
               <Season key={key} season={key} />
             ))}
           </div>
-        </header>
+        </div>
       }
       body={
-        <main role="main">
-          <div  className={styles.body} role="grid" aria-label="Calendar months">
+        <>
+          <div className={styles.body} role="grid" aria-label="Calendar months">
             {monthNames.map((monthName: MonthName) => (
               <Month
                 key={monthName}
@@ -46,8 +49,12 @@ export const Year = ({ quoteDaysByMonth }: Props) => {
               />
             ))}
           </div>
-        </main>
+          <Link href="/about" className={styles.about}>
+            About
+          </Link>
+        </>
       }
+      footer={SHOW_TOOLBAR && <Toolbar />}
       containerStyle={{ maxWidth: "700px" }}
     />
   );

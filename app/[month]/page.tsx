@@ -4,6 +4,8 @@ import { DatabaseService } from "@/app/lib/database";
 import { getDays } from "@/app/lib/helpers";
 import { monthsMap } from "@/app/lib/months";
 
+export const dynamicParams = false;
+
 export default async function MonthPage({ params }: MonthPageProps) {
   const { month: monthName } = await params;
   const dayCount = monthName && monthsMap[monthName].dayCount;

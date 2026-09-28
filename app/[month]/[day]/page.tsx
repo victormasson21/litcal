@@ -3,6 +3,8 @@ import { Day, DayPageProps } from "@/app/types/types";
 import { DatabaseService } from "@/app/lib/database";
 import { NavigationService } from "@/app/lib/navigation";
 
+export const dynamicParams = false;
+
 export default async function DayPage({ params }: DayPageProps) {
   const { month: monthName, day: dayPath } = await params;
   const day: Day = Number(dayPath);
