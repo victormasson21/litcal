@@ -4,7 +4,6 @@ import { getDayPath, getNextMonth, getPreviousMonth } from './helpers';
 
 export interface NavigationItem {
   url: string;
-  text: string;
 }
 
 export interface Navigation {
@@ -23,9 +22,9 @@ export class NavigationService {
     availableDays: Array<{day: number, month: string}>
   ): Promise<Navigation> {
     const navigation: Navigation = {
-      left: { url: "", text: "Previous" },
-      center: { url: `/${monthName}`, text: monthName },
-      right: { url: "", text: "Next" },
+      left: { url: "" },
+      center: { url: `/${monthName}` },
+      right: { url: "" },
     };
 
     // Find the current day's position
