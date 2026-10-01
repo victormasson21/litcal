@@ -8,7 +8,6 @@ import grid from "./grid.svg";
 
 type Link = {
   url: string;
-  text: string;
 };
 
 export interface NavLinks {
