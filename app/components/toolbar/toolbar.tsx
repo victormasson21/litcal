@@ -1,37 +1,34 @@
-import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import template from "../template.module.css";
-import add from "./add.svg";
-import bell from "./bell.svg";
-import about from "./about.svg";
-
-const ICON_SIZE = 32;
+import styles from "./toolbar.module.css";
 
 type Action = {
   label: string;
-  icon: StaticImageData;
   url: string;
   show: boolean;
 };
 
 const actions: ReadonlyArray<Action> = [
-  { label: "Add a quote", icon: add, url: "/add", show: false },
-  { label: "About Seasons", icon: about, url: "/about", show: true },
-  { label: "Get notified", icon: bell, url: "/about#notifications", show: true },
+  { label: "Add a quote", url: "/add", show: false },
+  { label: "About", url: "/about", show: true },
+  { label: "Get notified", url: "/about#notifications", show: false },
 ];
 
 export const Toolbar = () => (
-  <nav role="navigation" aria-label="Page actions" className={template.bar}>
+  <nav
+    role="navigation"
+    aria-label="Page actions"
+    className={`${template.bar} ${styles.toolbar}`}
+  >
     {actions
       .filter(({ show }) => show)
-      .map(({ label, icon, url }) => (
+      .map(({ label, url }) => (
         <Link
           key={label}
-          className={template.barItem}
+          className={`${template.textLink} ${template.barItem}`}
           href={url}
-          aria-label={label}
         >
-          <Image src={icon} alt="" width={ICON_SIZE} height={ICON_SIZE} />
+          {label}
         </Link>
       ))}
   </nav>
