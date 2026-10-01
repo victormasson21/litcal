@@ -13,7 +13,9 @@
   flex-direction: column;
   align-items: center;
 
-  animation: fadeInOpacity 0.3s;
+  & > * {
+    animation: fadeInOpacity 0.3s;
+  }
 }
 
 .main {
@@ -36,7 +38,9 @@
   flex-direction: column;
   align-items: center;
 
-  animation: fadeInOpacity 1.2s;
+  & > * {
+    animation: fadeInOpacity 1.2s;
+  }
 }
 
 .bar {
