@@ -1,9 +1,5 @@
-.button {
+.toolbar {
   display: flex;
-  align-items: center;
-  background: none;
-  border: none;
-  color: inherit;
-  font-family: inherit;
-  cursor: pointer;
+  justify-content: center;
+  gap: 32px;
 }

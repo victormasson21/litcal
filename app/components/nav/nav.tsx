@@ -26,17 +26,15 @@ export const Navigation = ({ links }: { links: NavLinks }) => {
       aria-label="Page navigation"
       className={`${template.bar} ${styles.container}`}
     >
-      <Arrow url={left.url} label="Go to previous page">
-        &larr;
-      </Arrow>
+      <Arrow url={left.url}>Previous</Arrow>
       <HomeLink url={center.url} />
-      <Arrow url={right.url} label="Go to next page">
-        &rarr;
-      </Arrow>
+      <Arrow url={right.url}>Next</Arrow>
       <SwipeNavigation links={links} />
     </nav>
   );
 };
+
+const barItem = `${template.textLink} ${template.barItem}`;
 
 export const HomeLink = ({ url }: { url: string }) => (
   <Link
@@ -50,20 +48,16 @@ export const HomeLink = ({ url }: { url: string }) => (
 
 type ArrowProps = {
   url: string;
-  label: string;
   children: ReactNode;
 };
 
-const Arrow = ({ url, label, children }: ArrowProps) =>
+const Arrow = ({ url, children }: ArrowProps) =>
   url ? (
-    <Link className={template.barItem} href={url} aria-label={label}>
+    <Link className={barItem} href={url}>
       {children}
     </Link>
   ) : (
-    <span
-      className={`${template.barItem} ${styles.disabled}`}
-      aria-hidden="true"
-    >
+    <span className={`${barItem} ${styles.disabled}`} aria-hidden="true">
       {children}
     </span>
   );

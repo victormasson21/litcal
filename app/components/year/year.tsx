@@ -4,10 +4,8 @@ import { monthNames } from "@/app/lib/months";
 import { seasonsData, Season } from "@/app/components/seasons/seasons";
 import type { SeasonKey } from "@/app/components/seasons/seasons";
 import styles from "./year.module.css";
-import Link from "next/link";
 import { Template } from "../template";
 import { Toolbar } from "../toolbar/toolbar";
-import { SHOW_TOOLBAR } from "@/app/lib/flags";
 
 type Props = {
   quoteDaysByMonth: QuoteDaysByMonth;
@@ -39,22 +37,17 @@ export const Year = ({ quoteDaysByMonth }: Props) => {
         </div>
       }
       body={
-        <>
-          <div className={styles.body} role="grid" aria-label="Calendar months">
-            {monthNames.map((monthName: MonthName) => (
-              <Month
-                key={monthName}
-                monthName={monthName}
-                quotes={quoteDaysByMonth[monthName] ?? []}
-              />
-            ))}
-          </div>
-          <Link href="/about" className={styles.about}>
-            About
-          </Link>
-        </>
+        <div className={styles.body} role="grid" aria-label="Calendar months">
+          {monthNames.map((monthName: MonthName) => (
+            <Month
+              key={monthName}
+              monthName={monthName}
+              quotes={quoteDaysByMonth[monthName] ?? []}
+            />
+          ))}
+        </div>
       }
-      footer={SHOW_TOOLBAR && <Toolbar />}
+      footer={<Toolbar />}
       containerStyle={{ maxWidth: "700px" }}
     />
   );

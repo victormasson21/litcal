@@ -53,6 +53,7 @@ export const Day = ({
       footer={
         <>
           <QuoteDetails author={author} book={book} />
+          <hr />
           <Navigation links={navigation} />
         </>
       }
