@@ -7,14 +7,28 @@
 
 .header {
   width: 100%;
+  min-height: 80px;
   border-bottom: 2px solid rgba(0, 0, 0, 0.8);
 
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 
   & > * {
     animation: fadeInOpacity 0.3s;
+  }
+}
+
+@media screen and (min-width: 480px) {
+  .header {
+    min-height: 96px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .header {
+    min-height: 100px;
   }
 }
 
