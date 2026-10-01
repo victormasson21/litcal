@@ -4,6 +4,7 @@ import { monthNames } from "@/app/lib/months";
 import { seasonsData, Season } from "@/app/components/seasons/seasons";
 import type { SeasonKey } from "@/app/components/seasons/seasons";
 import styles from "./year.module.css";
+import template from "../template.module.css";
 import Link from "next/link";
 import { Template } from "../template";
 import { Toolbar } from "../toolbar/toolbar";
@@ -49,7 +50,10 @@ export const Year = ({ quoteDaysByMonth }: Props) => {
               />
             ))}
           </div>
-          <Link href="/about" className={styles.about}>
+          <Link
+            href="/about"
+            className={`${template.textLink} ${styles.about}`}
+          >
             About
           </Link>
         </>

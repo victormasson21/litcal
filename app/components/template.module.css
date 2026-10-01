@@ -48,14 +48,16 @@
   padding: 8px 16px;
 }
 
+.textLink {
+  font-size: 18px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
 .barItem {
   display: flex;
   align-items: center;
-  min-height: 76px;
   padding: 16px;
-  font-weight: bold;
-  font-size: 36px;
-  line-height: 44px;
 
   opacity: 0.8;
   transition: opacity 0.6s;
