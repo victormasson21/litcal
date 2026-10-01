@@ -36,26 +36,24 @@ export const Day = ({
         </h1>
       }
       body={
-        <div className={styles.body}>
-          <p className={styles.paragraph}>{quote}</p>
-
-          {mainIcon && (
-            <Image
-              key={alt}
-              src={src}
-              alt={alt}
-              height={50}
-              className={styles.icon}
-            />
-          )}
-        </div>
-      }
-      footer={
         <>
+          <div className={styles.body}>
+            <p className={styles.paragraph}>{quote}</p>
+
+            {mainIcon && (
+              <Image
+                key={alt}
+                src={src}
+                alt={alt}
+                height={50}
+                className={styles.icon}
+              />
+            )}
+          </div>
           <QuoteDetails author={author} book={book} />
-          <Navigation links={navigation} />
         </>
       }
+      footer={<Navigation links={navigation} />}
     />
   );
 };
