@@ -55,7 +55,7 @@
 .barItem {
   display: flex;
   align-items: center;
-  padding: 16px;
+  padding: 8px 16px;
 
   opacity: 0.8;
   transition: opacity 0.6s;
