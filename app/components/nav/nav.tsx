@@ -21,7 +21,11 @@ export const Navigation = ({ links }: { links: NavLinks }) => {
   const { left, center, right } = links;
 
   return (
-    <nav role="navigation" aria-label="Page navigation" className={template.bar}>
+    <nav
+      role="navigation"
+      aria-label="Page navigation"
+      className={`${template.bar} ${styles.container}`}
+    >
       <Arrow url={left.url}>Previous</Arrow>
       <HomeLink url={center.url} />
       <Arrow url={right.url}>Next</Arrow>
