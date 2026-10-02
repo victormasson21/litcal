@@ -1,4 +1,5 @@
 import { Info } from "@/app/components/info/info";
+import { Install } from "@/app/components/install/install";
 import { Notify } from "@/app/components/notify/notify";
 import { SHOW_NOTIFICATIONS } from "@/app/lib/flags";
 
@@ -18,6 +19,12 @@ export default function AboutPage() {
         The calendar grows as we read. A day without a passage is a day we
         have not found one for yet.
       </p>
+
+      <h2 id="home-screen">Home screen</h2>
+      <p>
+        Add Seasons to your home screen to open it full screen, like an app.
+      </p>
+      <Install />
 
       {SHOW_NOTIFICATIONS && (
         <>
