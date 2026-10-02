@@ -20,10 +20,8 @@ export default function AboutPage() {
         have not found one for yet.
       </p>
 
-      <h2 id="home-screen">Home screen</h2>
-      <p>
-        Add Seasons to your home screen to open it full screen, like an app.
-      </p>
+      <hr />
+      <p>Add Seasons to your home screen to use it like an app.</p>
       <Install />
 
       {SHOW_NOTIFICATIONS && (
