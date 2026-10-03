@@ -1,7 +1,8 @@
 "use client";
 
 import { useSyncExternalStore } from "react";
-import styles from "./notify.module.css";
+import { isInstalled, isIphone } from "@/app/lib/device";
+import template from "../template.module.css";
 
 type Status =
   | "loading"
@@ -10,11 +11,6 @@ type Status =
   | "denied"
   | "default"
   | "granted";
-
-const isIphone = (): boolean => /iPad|iPhone|iPod/.test(navigator.userAgent);
-
-const isInstalled = (): boolean =>
-  window.matchMedia("(display-mode: standalone)").matches;
 
 const readStatus = (): Status => {
   if ("serviceWorker" in navigator && "PushManager" in window) {
@@ -63,7 +59,7 @@ export const Notify = () => {
       );
     case "default":
       return (
-        <button type="button" className={styles.button} onClick={request}>
+        <button type="button" className={template.button} onClick={request}>
           Turn on notifications
         </button>
       );

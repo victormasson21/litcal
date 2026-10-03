@@ -37,12 +37,14 @@ npm run lint
 - **Home Page** (`app/page.tsx`): Year view showing all months with quote availability
 - **Month Pages** (`app/[month]/page.tsx`): Month view showing all days with quote indicators
 - **Day Pages** (`app/[month]/[day]/page.tsx`): Individual quote display
-- **About Page** (`app/about/page.tsx`): Static copy inside the `Info` layout, linked from the home page's toolbar; a Notifications section with the `Notify` client component (reads push support and permission, asks for permission on tap) sits behind `SHOW_NOTIFICATIONS`, off for now
+- **About Page** (`app/about/page.tsx`): Static copy inside the `Info` layout, linked from the home page's toolbar; a Home screen section with the `Install` client component (an install button where the browser offers `beforeinstallprompt`, Share instructions on iPhone, a menu hint elsewhere); a Notifications section with the `Notify` client component (reads push support and permission, asks for permission on tap) sits behind `SHOW_NOTIFICATIONS`, off for now
 - **Flags** (`app/lib/flags.ts`): `SHOW_NOTIFICATIONS`; it lives outside client modules because a value imported from a `"use client"` file reaches a server component as a client reference, which is always truthy
 
 ### Data Layer
 - **Database Service** (`app/lib/database.ts`): Centralized queries over `data/quotes.json` with well-documented methods for different use cases (build-time, month pages, day pages)
 - **Navigation Service** (`app/lib/navigation.ts`): Handles prev/next navigation logic across months and days
+- **Install Store** (`app/lib/install.ts`): Keeps the browser's install prompt; `instrumentation-client.ts` starts its listener before hydration on every page, because the browser fires `beforeinstallprompt` once per page load, often before the About page loads
+- **Device Checks** (`app/lib/device.ts`): `isIphone()` and `isInstalled()`, shared by `Install` and `Notify`
 
 ### Type System
 - **Core Types** (`app/types/types.ts`): MonthName union type, Quote interface, page prop interfaces

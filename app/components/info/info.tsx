@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { HomeLink } from "@/app/components/nav/nav";
 import { Template } from "../template";
+import template from "../template.module.css";
 import styles from "./info.module.css";
 
 type Props = {
@@ -17,7 +18,7 @@ export const Info = ({ title, children }: Props) => (
       <nav
         role="navigation"
         aria-label="Page navigation"
-        className={styles.footer}
+        className={`${template.bar} ${styles.footer}`}
       >
         <HomeLink url="/" />
       </nav>
