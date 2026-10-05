@@ -7,21 +7,17 @@ export default function AboutPage() {
   return (
     <Info title="About">
       <p>
-        Seasons is a literary calendar. Each day carries a passage from a
-        novel, a diary or a poem that names that date, set in the season it
-        belongs to.
+        Seasons is an elusive mission to build a calendar entirely from book
+        fragments.
       </p>
       <p>
-        Browse the year to see which days have a passage, open a month to
-        read its days, or swipe from one quote to the next.
-      </p>
-      <p>
-        The calendar grows as we read. A day without a passage is a day we
-        have not found one for yet.
+        Each day holds a passage from a novel that mentions that specific date.
+        Some relate to actual events and bring us back in time. Others are
+        purely fictional and leave us wondering why the author chose to use this
+        particular date. There is some way to go, if you spot a date we are
+        missing please share it with us.
       </p>
 
-      <hr />
-      <p>Add Seasons to your home screen to use it like an app.</p>
       <Install />
 
       {SHOW_NOTIFICATIONS && (

@@ -1,6 +1,6 @@
 "use client";
 
-import { useSyncExternalStore } from "react";
+import { type ReactNode, useSyncExternalStore } from "react";
 import { isInstalled, isIphone } from "@/app/lib/device";
 import {
   promptInstall,
@@ -24,6 +24,14 @@ const readStatus = (): Status => {
 
 const serverStatus = (): Status => "loading";
 
+const Invite = ({ children }: { children: ReactNode }) => (
+  <>
+    <hr />
+    <p>Add Seasons to your home screen to use it like an app.</p>
+    {children}
+  </>
+);
+
 export const Install = () => {
   const status = useSyncExternalStore(
     subscribeToInstall,
@@ -38,21 +46,29 @@ export const Install = () => {
       return <p>Seasons is on your home screen.</p>;
     case "ready":
       return (
-        <button
-          type="button"
-          className={template.button}
-          onClick={promptInstall}
-        >
-          Add to home screen
-        </button>
+        <Invite>
+          <button
+            type="button"
+            className={template.button}
+            onClick={promptInstall}
+          >
+            Add to home screen
+          </button>
+        </Invite>
       );
     case "iphone":
-      return <p>On iPhone, tap Share, then Add to Home Screen.</p>;
+      return (
+        <Invite>
+          <p>On iPhone, tap Share, then Add to Home Screen.</p>
+        </Invite>
+      );
     case "menu":
       return (
-        <p>
-          Look for Add to Home Screen or Install in your browser&apos;s menu.
-        </p>
+        <Invite>
+          <p>
+            Look for Add to Home Screen or Install in your browser&apos;s menu.
+          </p>
+        </Invite>
       );
     default: {
       const exhaustive: never = status;
