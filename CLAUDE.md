@@ -72,6 +72,8 @@ File: `data/quotes.json`, an array of quotes
 - `year`: Year of publication
 - `display`: Boolean flag for showing/hiding quotes
 
+Never delete a quote. To replace the quote shown on a day, set the old one's `display` to `false`; new quotes take the next free `id`.
+
 ### Static Generation
 - Uses `generateStaticParams` for all dynamic routes
 - Build-time queries populate static paths for months and days with available quotes
