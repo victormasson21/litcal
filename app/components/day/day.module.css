@@ -32,6 +32,34 @@
   animation: tilted-spin 20s linear infinite;
 }
 
+.switch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.dots {
+  display: flex;
+  gap: 8px;
+}
+
+.dot,
+.currentDot {
+  width: 8px;
+  height: 8px;
+  border: 1.5px solid rgba(0, 0, 0, 0.8);
+  border-radius: 50%;
+}
+
+.currentDot {
+  background: rgba(0, 0, 0, 0.8);
+}
+
 .quoteDetails {
   width: 100%;
   display: flex;

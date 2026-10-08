@@ -4,7 +4,9 @@ import { monthsMap } from './months';
 
 type QuoteLocation = { day: number; month: MonthName };
 
-const quotes = (quotesData as Quote[])
+const allQuotes = quotesData as Quote[];
+
+const quotes = allQuotes
   .filter(({ display }) => display)
   .sort((a, b) => a.day - b.day);
 
@@ -71,17 +73,19 @@ export class DatabaseService {
   // =============================================================================
 
   /**
-   * Get a quote for a specific day and month
-   * Used in: /month/day page to display the actual quote
+   * Get all quotes for a specific day and month, displayed quotes first
+   * Used in: /month/day page to display the actual quotes
    */
-  static async getQuoteForDay(month: MonthName, day: Day): Promise<Quote> {
-    const quote = getQuotesForMonth(month).find((quote) => quote.day === day);
+  static async getQuotesForDay(month: MonthName, day: Day): Promise<Quote[]> {
+    const dayQuotes = allQuotes
+      .filter((quote) => quote.month === month && quote.day === day)
+      .sort((a, b) => Number(b.display) - Number(a.display));
 
-    if (!quote) {
+    if (!dayQuotes.some(({ display }) => display)) {
       throw new Error(`No quote found for ${month} ${day}`);
     }
 
-    return quote;
+    return dayQuotes;
   }
 
   /**
