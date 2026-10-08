@@ -13,8 +13,8 @@ export default async function DayPage({ params }: DayPageProps) {
     throw new Error(`Invalid day: ${dayPath}`);
   }
 
-  const [quote, availableDays] = await Promise.all([
-    DatabaseService.getQuoteForDay(monthName, day),
+  const [quotes, availableDays] = await Promise.all([
+    DatabaseService.getQuotesForDay(monthName, day),
     DatabaseService.getDaysWithQuotesForMonth(monthName)
   ]);
 
@@ -28,9 +28,7 @@ export default async function DayPage({ params }: DayPageProps) {
     <DayComponent
       day={day}
       monthName={monthName}
-      quote={quote.quote}
-      author={quote.author}
-      book={quote.book}
+      quotes={quotes}
       navigation={navigation}
     />
   );

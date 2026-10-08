@@ -54,7 +54,7 @@ npm run lint
 ### Component Architecture
 - **Year Component**: Grid layout showing all 12 months with quote availability indicators
 - **Month Component**: Calendar-style layout showing days with quote availability
-- **Day Component**: Quote display with navigation between adjacent quotes
+- **Day Component**: Quote display with navigation between adjacent quotes; on a day with several quotes, the icon switches between them and dots below it mark the current one
 - **Seasons Component**: Visual seasonal indicators and theming
 - **Navigation Component**: Reusable nav bar with prev/center/next pattern; horizontal swipes follow the same links
 - **Toolbar Component**: Home page bottom bar of text links (add, about, notify); each action's `show` flag switches it on and off, only About is on
@@ -70,9 +70,9 @@ File: `data/quotes.json`, an array of quotes
 - `author`: Author name
 - `book`: Book title
 - `year`: Year of publication
-- `display`: Boolean flag for showing/hiding quotes
+- `display`: Boolean flag; a day page exists only when one of its quotes has it, and that quote shows first
 
-Never delete a quote. To replace the quote shown on a day, set the old one's `display` to `false`; new quotes take the next free `id`.
+Never delete a quote. To replace the quote shown first on a day, set the old one's `display` to `false`; new quotes take the next free `id`.
 
 ### Static Generation
 - Uses `generateStaticParams` for all dynamic routes
