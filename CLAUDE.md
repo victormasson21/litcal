@@ -69,7 +69,7 @@ File: `data/quotes.json`, an array of quotes
 - `quote`: Quote text
 - `author`: Author name
 - `book`: Book title
-- `year`: Year of publication
+- `year`: Year the quoted date falls in within the story, not the year of publication; empty when the book gives none
 - `display`: Boolean flag; a day page exists only when one of its quotes has it, and that quote shows first
 
 Never delete a quote. To replace the quote shown first on a day, set the old one's `display` to `false`; new quotes take the next free `id`.
