@@ -43,7 +43,12 @@ export const Install = () => {
     case "loading":
       return null;
     case "installed":
-      return <p>Seasons is on your home screen.</p>;
+      return (
+        <>
+          <hr />
+          <p>Seasons is on your home screen.</p>
+        </>
+      );
     case "ready":
       return (
         <Invite>
