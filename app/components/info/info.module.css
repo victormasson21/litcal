@@ -18,6 +18,10 @@
     font-weight: normal;
   }
 
+  & a {
+    text-decoration: underline;
+  }
+
   & hr {
     margin: 0 -16px;
     border: 0;
