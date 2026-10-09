@@ -12,10 +12,9 @@ export default function AboutPage() {
       </p>
       <p>
         Each day holds a passage from a novel that mentions that specific date.
-        Some relate to actual events and bring us back in time. Others are
-        purely fictional and leave us wondering why the author chose to use this
-        particular date. There is some way to go, if you spot a date we are
-        missing please share it with us.
+        Some relate to actual events, others are purely fictional, many are
+        missing – if you spot one in the wild, send it to{" "}
+        <a href="mailto:seasons@vicm.dev">seasons@vicm.dev</a>.
       </p>
 
       <Install />
